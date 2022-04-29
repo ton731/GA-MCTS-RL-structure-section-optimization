@@ -1,0 +1,160 @@
+========================================
+[1]SetCommandIndex()
+----------------------------------------
+  a.UpperCase()
+  b.First String
+    [ANALYSIS] = 1
+    [CONSTRAINT] = 6
+    [CONTROLDATA] = 1
+    [DOF] = 22
+    [ELEMENT] = 240
+    [GUI_AREA_LOAD_ASSIGNED_TYPE] = 1
+    [GUI_GRID] = 3
+    [GUI_LOADCASE] = 1
+    [GUI_OUTPUT] = 1
+    [GUI_SECTION] = 14
+    [GUI_SECTION_DISPLAY_COLOR] = 14
+    [GUI_SECTION_PROPERTY_FACTOR] = 14
+    [KN] = 1
+    [LOADPATTERN] = 1
+    [MASS] = 6
+    [MATERIAL] = 1
+    [MM] = 1
+    [NODE] = 118
+    [OUTPUT] = 1
+    [SECTION] = 14
+    [STOP] = 1
+   The Num. of COMMAND = 462
+========================================
+
+
+
+========================================
+[2]SetElementCommandIndex()
+----------------------------------------
+  a.UpperCase()
+  b.Get COMMANDs of [ELEMENT]
+    [BEAMCOLUMN] = 240
+   The Num. of [ELEMENT] = 240
+  c.Get COMMANDs of [GUI_ELEMENT]
+   The Num. of [GUI_ELEMENT] = 0
+========================================
+
+
+
+========================================
+[3]ReadUnit()
+----------------------------------------
+  a.FORCE UNIT: kN
+  b.LENGTH UNIT: mm
+========================================
+
+
+
+========================================
+[4]ReadGeometricNL()
+----------------------------------------
+  a.GeometricNL: 1
+    code 0 = Without Geometric Matrix
+    code 1 = Consider only after every Analysis
+    code 2 = Update before each analysis step
+========================================
+========================================
+[5]ReadEnergyGpDB()
+----------------------------------------
+  a.Get Energy Groups
+   The Num. of [GUI_ENERGYGP] = 0
+========================================
+========================================
+[6]ReadForceGpDB()
+----------------------------------------
+  a.Get Force Groups
+   The Num. of [GUI_FORCEGP] = 0
+========================================
+
+
+
+========================================
+[7]ReadInteractionSurface()
+----------------------------------------
+  a.Get COMMANDs of [INTERACTIONSURFACE]
+   The Num. of [INTERACTIONSURFACE] = 0
+========================================
+
+
+
+========================================
+[8]ReadRigidEndZone()
+----------------------------------------
+  a.Get COMMANDs of [RIGIDENDZONE]
+   The Num. of [RIGIDENDZONE] = 0
+========================================
+
+
+
+========================================
+[9]ReadMaterial()
+----------------------------------------
+  a.Get COMMANDs of [MATERIAL]
+----------------------
+    [MATERIAL_No] = 1
+    [MATERIAL_TAG] = steel
+      [MATERIAL_TYPE] = Bilinear
+      [Ei] = 200
+      [SHR] = 0
+      [fyt] = 0.35
+      [fyc] = -0.35
+      [Nu] = 0.3
+----------------------
+
+   The Num. of [MATERIAL] = 1
+========================================
+
+
+
+========================================
+[10]ReadGUISection()
+----------------------------------------
+  a.Get COMMANDs of [GUI_SECTION]
+
+
+
+========================================
+[11]ReadSection()
+----------------------------------------
+  a.Get COMMANDs of [SECTION]
+
+
+
+========================================
+[12]Read_VDP()
+----------------------------------------
+  a.Get COMMANDs of [GUI_DAPMER_PROPERTIES]
+   The Num. of [VDP] = 0
+========================================
+
+
+
+========================================
+[13]Read_JEP()
+----------------------------------------
+  a.Get COMMANDs of [GUI_JOINT_ELEMENT_PROPERTIES]
+   The Num. of [JEP] = 0
+========================================
+
+
+
+========================================
+[13]Read_PEP()
+----------------------------------------
+  a.Get COMMANDs of [GUI_PANEL_ELEMENT_PROPERTIES]
+   The Num. of [PEP] = 0
+========================================
+
+
+
+========================================
+[5]ReadNodalLoad()
+----------------------------------------
+  a.Get COMMAND of [LOADPATTERN]W/O[GUI_LOADPATTERN]
+========================================
