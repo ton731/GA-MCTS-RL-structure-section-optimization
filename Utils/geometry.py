@@ -1,7 +1,66 @@
-from certifi import contents
 import torch
 from torch_geometric.data import Data
+import numpy as np
+import eqsig.single
 from .sections import *
+
+
+
+def scale_gm_to_design_level(gm_path, original_gm):
+    min_t = 0.45
+    max_t = 1.35
+    main_start, main_end = None, None    # indexes for t = 0.45 ~ 1.35
+    main_Sa = None                       # mean for Sa between t = 0.45 ~ 1.35
+
+    # 2. Calculate design spectrum 
+    S1D, SSD = 0.45, 0.80
+    Bs, B1 = 0.8, 0.8
+    Na, Nv = 1.37, 1.44
+    Fa, Fv = 1.0, 1.2
+    S1 = S1D * Nv
+    Ss = SSD * Na
+    SX1 = Fv * S1
+    SXS = Fa * Ss
+    T0 = (SX1 * Bs) / (SXS * B1)
+    print(f"T0 = {T0:.5f}")
+
+    periods = np.linspace(0.2, 10, 100)
+    design_spectrum = np.zeros(1000)
+    for i, t in enumerate(periods):
+        if t < 0.2*T0:
+            design_spectrum[i] = Fa * Ss / Bs * (0.4 + 3 * t / T0)
+        elif t >= 0.2*T0 and t <= T0:
+            design_spectrum[i] = Fa * Ss / Bs
+        elif t > T0:
+            design_spectrum[i] = Fv * S1 / (B1 * t)
+        else:
+            design_spectrum[i] = None
+
+    for i, t in enumerate(periods):
+        if main_start == None and t >= min_t:
+            main_start = i
+        if main_end == None and t > max_t:
+            main_end = i
+
+    main_Sa = np.sum(design_spectrum[main_start:main_end])
+
+
+    dt = 0.005
+    file = np.loadtxt(gm_path)
+    gm = file[:, 1] / 1000 / 9.8
+    record = eqsig.AccSignal(gm, dt)
+    record.generate_response_spectrum(response_times=periods)
+
+    sa_sum = np.sum(record.s_a[main_start:main_end])
+    scale_factor = main_Sa / sa_sum
+
+    scaled_gm = original_gm * scale_factor
+
+    print(f"Ground motion is amplified {scale_factor:.4f} times to the design scale")
+
+    return scaled_gm
+
+
 
 
 def get_graph_and_index_from_ipt(ipt_path, gm_path):
@@ -13,6 +72,8 @@ def get_graph_and_index_from_ipt(ipt_path, gm_path):
         for index, line in enumerate(f.readlines()):
             i, j = index//10, index%10
             ground_motion[i, j] = float(line.split()[1])
+
+    ground_motion = scale_gm_to_design_level(gm_path, ground_motion)
 
 
     node_dict = {}

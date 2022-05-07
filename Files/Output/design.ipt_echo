@@ -4,10 +4,10 @@
   a.UpperCase()
   b.First String
     [ANALYSIS] = 1
-    [CONSTRAINT] = 6
+    [CONSTRAINT] = 5
     [CONTROLDATA] = 1
-    [DOF] = 22
-    [ELEMENT] = 240
+    [DOF] = 23
+    [ELEMENT] = 225
     [GUI_AREA_LOAD_ASSIGNED_TYPE] = 1
     [GUI_GRID] = 3
     [GUI_LOADCASE] = 1
@@ -17,14 +17,14 @@
     [GUI_SECTION_PROPERTY_FACTOR] = 14
     [KN] = 1
     [LOADPATTERN] = 1
-    [MASS] = 6
+    [MASS] = 5
     [MATERIAL] = 1
     [MM] = 1
-    [NODE] = 118
+    [NODE] = 113
     [OUTPUT] = 1
     [SECTION] = 14
     [STOP] = 1
-   The Num. of COMMAND = 462
+   The Num. of COMMAND = 441
 ========================================
 
 
@@ -34,8 +34,8 @@
 ----------------------------------------
   a.UpperCase()
   b.Get COMMANDs of [ELEMENT]
-    [BEAMCOLUMN] = 240
-   The Num. of [ELEMENT] = 240
+    [BEAMCOLUMN] = 225
+   The Num. of [ELEMENT] = 225
   c.Get COMMANDs of [GUI_ELEMENT]
    The Num. of [GUI_ELEMENT] = 0
 ========================================

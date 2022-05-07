@@ -25,6 +25,7 @@ class Node:
     min_max_usage = None
     model = None
     device = "cuda"
+    yield_factor = None
 
     def __init__(self, parent, action_section, depth, is_beam, previous_sections):
         self.parent = parent                # Last element
@@ -57,10 +58,11 @@ class Node:
         Node.norm_dict = mcts_args["norm_dict"]
         Node.min_max_usage = mcts_args["min_max_usage"]
         Node.model = mcts_args["model"]
+        Node.yield_factor = mcts_args["yield_factor"]
 
         print(f"There are total {Node.total_elements} elements.")
         print(f"Element Category List: {Node.element_category_list[:10]}...")
-        print(f"Graph: {Node.graph}")
+        # print(f"Graph: {Node.graph}")
         print(f"Input path: {Node.ipt_path}")
         print(f"Candidate path: {Node.candidate_path}")
         print(f"Analysis path: {Node.analysis_path}")
@@ -78,7 +80,7 @@ class Node:
             w = 0.0
         return w
 
-    def select(self, c_param=1.4):
+    def select(self, c_param=1.1):
         # print(f"Select, depth:{self.element_index}, {self.previous_sections}")
         weights = [child_node.weight_func(c_param) for child_node in self.childrens]
         action = np.argmax(weights)

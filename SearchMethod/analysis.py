@@ -6,7 +6,7 @@ import time
 
 pisa = "E:/StructureInverseDesign/Files/Analysis/PISA3D_Batch_500nodes.exe"
 eigen_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Eigen"
-modal_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Modal"
+# modal_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Modal"
 
 
 def run_modal_analysis(node, candidate_design):
@@ -26,6 +26,9 @@ def run_modal_analysis(node, candidate_design):
                 contents[5] = candidate_design[element_index]
                 new_line = " ".join(contents)
                 f.write(new_line + '\n')
+            elif "LoadPattern  GroundAccel" in line:
+                new_line = line.replace("LoadPattern  GroundAccel", "# LoadPattern  GroundAccel")
+                f.write(new_line)
             else:
                 f.write(line)
 
@@ -33,9 +36,11 @@ def run_modal_analysis(node, candidate_design):
     modal_path = node.analysis_path.split(".")[0]
     # Hide os.system output from terminal:
     # https://stackoverflow.com/questions/33985863/hiding-console-output-produced-by-os-system
-    os.system("@ECHO OFF")
     # os.system(pisa + " " + modal_path + " " + ">/null 2>&1")
-    os.system(pisa + " " + modal_path)
+    finished = False
+    while not finished:
+        os.system(pisa + " " + modal_path + " " + ">/null 2>&1")
+        finished = check_modal_analysis()
     time.sleep(0.1)
 
 
@@ -64,6 +69,11 @@ def run_modal_analysis(node, candidate_design):
     
     return (first_mode_period, node_first_mode_shape)
 
+
+def check_modal_analysis():
+    if os.path.exists("Files/Analysis/MODAL.Eigen"):
+        return True
+    return False
 
 
 

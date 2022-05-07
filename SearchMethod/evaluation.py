@@ -8,14 +8,15 @@ def designScore(node, graph, response, design):
     '''
     Score will be contributed by PlasticHingeScore and MaterialUsageScore
     '''
-    strengthFactor, materialFactor = 0.6, 0.4
+    strengthFactor, materialFactor = 0.7, 0.3
     score = 0
-    score += strengthFactor * plasticHingeScore(graph, response)
+    score += strengthFactor * plasticHingeScore(node, graph, response)
     score += materialFactor * materialUsageScore(node, design)
     return score
 
 
-def plasticHingeScore(graph, response):
+
+def plasticHingeScore(node, graph, response):
     # response: [node_num, 2000(timestep), 15(out_dim)]
     x = graph.x
     plastic_hinge_shape = [response.shape[0], 6]    # [node_num, 6 face]
@@ -28,10 +29,11 @@ def plasticHingeScore(graph, response):
             My_localZ_face_i = x[node_index, My_start_index + i]
             if My_localZ_face_i <= 0.1:     # It means this face is not connect to any element
                 continue
-            pred_node_plastic_hinge = (pred_moment_face_i >= 0.95 * My_localZ_face_i) + 0  # [2000]
+            pred_node_plastic_hinge = (abs(pred_moment_face_i) >= node.yield_factor * My_localZ_face_i) + 0  # [2000]
 
             # Once plastic hinge occurs, set the [index, face] as plastic
             if(torch.max(pred_node_plastic_hinge) != 0):
+                # print('There is a plastic hinge!')
                 ph_pred[node_index, i] = 1
 
     plastic_num = torch.sum(ph_pred)
@@ -40,6 +42,7 @@ def plasticHingeScore(graph, response):
     x_grid_num, y_grid_num, z_grid_num = graph.grid_num
     maximum_tolerable_plastic_hinge_number = 2 * (x_grid_num * z_grid_num)
     score = 1 - plastic_num / maximum_tolerable_plastic_hinge_number
+    print(f"plastic hinge num: {plastic_num}")
     score = score.cpu().numpy()
 
     return score
