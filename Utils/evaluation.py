@@ -42,7 +42,7 @@ def plasticHingeScore(node, graph, response):
     x_grid_num, y_grid_num, z_grid_num = graph.grid_num
     maximum_tolerable_plastic_hinge_number = 2 * (x_grid_num * z_grid_num)
     score = 1 - plastic_num / maximum_tolerable_plastic_hinge_number
-    print(f"plastic hinge num: {plastic_num}")
+    # print(f"plastic hinge num: {plastic_num}")
     score = score.cpu().numpy()
 
     return score

@@ -274,7 +274,7 @@ Constraint  Diaphragm  D4  M4F  N73  N74  N75  N76  N77  N78  N79  N80  N81  N82
 Constraint  Diaphragm  D5  M5F  N91  N92  N93  N94  N95  N96  N97  N98  N99  N100  N101  N102  N103  N104  N105  N106  N107  N108  
 
 
-Element BeamColumn E1 N1 N19 16x16x0.5 0 1 1 0 0 0 0 0
+Element BeamColumn E1 N1 N19 16x16x0.375 0 1 1 0 0 0 0 0
 Element BeamColumn E2 N2 N20 16x16x0.375 0 1 1 0 0 0 0 0
 Element BeamColumn E3 N19 N20 W21x44 0 1 1 0 0 0 0 0
 Element BeamColumn E4 N3 N21 16x16x0.375 0 1 1 0 0 0 0 0

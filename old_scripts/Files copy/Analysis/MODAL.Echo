@@ -358,21 +358,21 @@
 
    Tag       Type                          Parameters
  --------  ---------------  -----------------------------------------------------
-   E1        BeamColumn     I=N1 J=N19 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
+   E1        BeamColumn     I=N1 J=N19 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
    E2        BeamColumn     I=N2 J=N20 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
    E3        BeamColumn     I=N19 J=N20 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E4        BeamColumn     I=N3 J=N21 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E4        BeamColumn     I=N3 J=N21 Sec.=16X16X0.75 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
    E5        BeamColumn     I=N20 J=N21 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E6        BeamColumn     I=N4 J=N22 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E6        BeamColumn     I=N4 J=N22 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
    E7        BeamColumn     I=N21 J=N22 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E8        BeamColumn     I=N5 J=N23 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E8        BeamColumn     I=N5 J=N23 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
    E9        BeamColumn     I=N22 J=N23 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
@@ -813,9 +813,9 @@
 
  Starting ModeShape Analysis...
    Subspace performs 6 iterations.
-   Jacobian performs 95 rotations.
+   Jacobian performs 96 rotations.
  ModeShape Analysis has succeeded!
 
  Total Analysis Methods Performed: 1
- Analysis Time Elapsed: 0.008 Sec.
+ Analysis Time Elapsed: 0.006 Sec.
 
