@@ -113,7 +113,7 @@ class MCTS:
 
     def simulation_policy(self):
         current_node = self.current_node
-        while current_node.element_index < Node.designer.total_elements:
+        while current_node.element_index < Node.designer.steps():
             if current_node.is_full_expand():
                 current_node = current_node.select()
             else:

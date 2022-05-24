@@ -8,9 +8,9 @@ eigen_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Eigen"
 # modal_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Modal"
 
 
-def run_modal_analysis(node, candidate_design):
-    input_file = open(node.ipt_path, 'r').readlines()
-    with open(node.analysis_path, 'w') as f:
+def run_modal_analysis(designer, candidate_design):
+    input_file = open(designer.ipt_path, 'r').readlines()
+    with open(designer.analysis_path, 'w') as f:
         for line in input_file:
             if "# Analysis  ModeShape" in line:
                 new_line = line.replace("# Analysis  ModeShape", "Analysis  ModeShape")
@@ -21,7 +21,7 @@ def run_modal_analysis(node, candidate_design):
             elif "Element  BeamColumn" in line:
                 contents = line.split()
                 node1_name, node2_name = contents[3], contents[4]
-                element_index = node.node_element_dict[f"{node1_name}_{node2_name}"]
+                element_index = designer.node_element_dict[f"{node1_name}_{node2_name}"]
                 contents[5] = candidate_design[element_index]
                 new_line = " ".join(contents)
                 f.write(new_line + '\n')
@@ -32,7 +32,7 @@ def run_modal_analysis(node, candidate_design):
                 f.write(line)
 
     # Run modal analysis
-    modal_path = node.analysis_path.split(".")[0]
+    modal_path = designer.analysis_path.split(".")[0]
     # Hide os.system output from terminal:
     # https://stackoverflow.com/questions/33985863/hiding-console-output-produced-by-os-system
     # os.system(pisa + " " + modal_path + " " + ">/null 2>&1")
@@ -47,7 +47,7 @@ def run_modal_analysis(node, candidate_design):
     # eigen_file = open(eigen_file_path, 'r').readlines()
     first_mode_period = None
     is_mode_1 = False
-    node_first_mode_shape = torch.zeros((node.graph.x.shape[0], 3))
+    node_first_mode_shape = torch.zeros((designer.graph.x.shape[0], 3))
 
     with open(eigen_file_path, 'r') as f:
         for line in f.readlines():
@@ -77,17 +77,17 @@ def check_modal_analysis():
 
 
 
-def make_section_graph(node, graph, candidate_design, modal_result):
+def make_section_graph(designer, graph, candidate_design, modal_result):
     # element_node_dict --> key: element_index, value: [node1_index, node2_index, node1_face (My's index), node2_face]
     for element_index, section in enumerate(candidate_design):
-        node1_index, node2_index, node1_face, node2_face = node.element_node_dict[element_index]
-        graph.x[node1_index, node1_face] = node.My_dict[section]
-        graph.x[node2_index, node2_face] = node.My_dict[section]
+        node1_index, node2_index, node1_face, node2_face = designer.element_node_dict[element_index]
+        graph.x[node1_index, node1_face] = designer.My_dict[section]
+        graph.x[node2_index, node2_face] = designer.My_dict[section]
     
     # modal result: normalize --> add to node feature
     first_mode_period, node_first_mode_shape = modal_result
-    first_mode_period /= node.norm_dict["period"]
-    node_first_mode_shape /= node.norm_dict["modal_shape"] 
+    first_mode_period /= designer.norm_dict["period"]
+    node_first_mode_shape /= designer.norm_dict["modal_shape"] 
     graph.x[:, 6] = first_mode_period
     graph.x[:, 11:14] = node_first_mode_shape
 
@@ -96,15 +96,17 @@ def make_section_graph(node, graph, candidate_design, modal_result):
 
 
 
-def predict(node, candidate_graph):
-    graph = candidate_graph.to(node.device)
-    node.model.eval()
+def predict(designer, candidate_graph):
+    graph = candidate_graph.to(designer.device)
+    duplicate_x = graph.x.repeat(designer.ground_motion_number, 1)    # duplicate x from [graph_nodes, features] to [graph_nodes * gm_num, features]
+
+    designer.model.eval()
     with torch.no_grad():
-        output = torch.zeros((graph.y.shape[0], graph.y.shape[1], node.model.output_dim)).to(node.device)
-        H_list = [None for i in range(node.model.num_layers)]
-        C_list = [None for i in range(node.model.num_layers)]
-        for i, gm in enumerate(graph.ground_motion):
-            H_list, C_list, out = node.model(gm, graph.x, None, None, graph.ptr, H_list, C_list)
+        output = torch.zeros((graph.y.shape[0] * designer.ground_motion_number, graph.y.shape[1], designer.model.output_dim)).to(designer.device)
+        H_list = [None for i in range(designer.model.num_layers)]
+        C_list = [None for i in range(designer.model.num_layers)]
+        for i, gm in enumerate(graph.ground_motions):
+            H_list, C_list, out = designer.model(gm, duplicate_x, None, None, graph.ptr, H_list, C_list)
             output[:, i, :] = out
     return output
 

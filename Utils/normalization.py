@@ -2,31 +2,11 @@ import torch
 from copy import deepcopy
 
 
-My_start_index = 20
-def reset_plastic_threshold(graph, yield_factor=0.85):
-    for node_index in range(graph.x.shape[0]):
-        for i, face_index in enumerate(list(range(3, 9))):   # face_index is index for Mz(x_n, x_p, y_n, y_p, z_n, z_p)
-            real_moment_face_i = graph.y[node_index, :, face_index]     # [2000]
-            My_localZ_face_i = graph.x[node_index, My_start_index + i]
-            if My_localZ_face_i <= 0.1:     # It means this face is not connect to any element
-                continue
-            real_node_plastic_hinge = (real_moment_face_i >= yield_factor * My_localZ_face_i) + 0  # [2000]
-
-            # Once plastic hinge occurs, make the later rest all 1
-            if(torch.max(real_node_plastic_hinge) != 0):
-                for timestep in range(graph.y.shape[1]):
-                    if(real_node_plastic_hinge[timestep] == 1):
-                        graph.y[node_index, timestep:, face_index] = 1
-                        break
-    return graph
-
-
-
-# normalize + reset My threshold
-def normalize(original_graph, norm_dict, yield_factor):
+# normalize
+def normalize(original_graph, norm_dict):
     graph = deepcopy(original_graph)
 
-    graph.ground_motion = graph.ground_motion / norm_dict['ground_motion']
+    graph.ground_motions = graph.ground_motions / norm_dict['ground_motion']
 
     graph.x[:, :3] = graph.x[:, :3] / norm_dict['grid_num']
     graph.x[:, 3:6] = graph.x[:, 3:6] / norm_dict['coord']
@@ -35,11 +15,56 @@ def normalize(original_graph, norm_dict, yield_factor):
     graph.x[:, 10] = graph.x[:, 10] / norm_dict['node_inertia']
     graph.x[:, 11:14] = graph.x[:, 11:14] / norm_dict['modal_shape']
    
-    graph.x[:, 14:20] = graph.x[:, 14:20] / norm_dict['elem_length']
-    graph.x[:, 20:26] = graph.x[:, 20:26] / norm_dict['momentZ']
+    graph.x[:, list(range(14, 26, 2))] = graph.x[:, list(range(14, 26, 2))] / norm_dict['elem_length']
+    graph.x[:, list(range(15, 26, 2))] = graph.x[:, list(range(15, 26, 2))] / norm_dict['momentZ']
 
     assert graph.x.shape[1] == 36
 
-    graph = reset_plastic_threshold(graph, yield_factor)
-
     return graph
+
+
+
+
+
+# denormalize
+def denormalize_ground_motion(original_gm, norm_dict):
+    gm = deepcopy(original_gm)
+    gm = gm * norm_dict['ground_motion'] 
+    return gm
+
+def denormalize_grid_num(original_x, norm_dict):
+    x = deepcopy(original_x)
+    x = x * norm_dict['grid_num']
+    return x
+
+def denormalize_x(original_x, norm_dict):
+    x = deepcopy(original_x)
+    x[:, :3] = x[:, :3] * norm_dict['grid_num']
+    x[:, 3:6] = x[:, 3:6] * norm_dict['coord']
+    return x
+
+def denormalize_acc(original_acc, norm_dict):
+    acc = deepcopy(original_acc)
+    acc = acc * norm_dict['acc']
+    return acc
+
+def denormalize_vel(original_vel, norm_dict):
+    vel = deepcopy(original_vel)
+    vel = vel * norm_dict['vel']
+    return vel
+
+def denormalize_disp(original_disp, norm_dict):
+    disp = deepcopy(original_disp)
+    disp = disp * norm_dict['disp']
+    return disp
+
+def denormalize_Mz(original_Mz, norm_dict):
+    Mz = deepcopy(original_Mz)
+    Mz = Mz * norm_dict['momentZ']
+    return Mz
+
+def denormalize_Sy(original_Sy, norm_dict):
+    Sy = deepcopy(original_Sy)
+    Sy = Sy * norm_dict['shearY']
+    return Sy
+

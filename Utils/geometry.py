@@ -1,40 +1,38 @@
 import torch
 from torch_geometric.data import Data
 import numpy as np
+import os
 import eqsig.single
 from .sections import *
 
 
 
-def scale_gm_to_design_level(gm_path, original_gm):
+def scale_gm_to_design_level(gm_paths, ground_motions):
+    # 1. Calculate design spectrum (大安區，台北三區)
     min_t = 0.45
     max_t = 1.35
-    main_start, main_end = None, None    # indexes for t = 0.45 ~ 1.35
-    main_Sa = None                       # mean for Sa between t = 0.45 ~ 1.35
+    main_start, main_end = None, None    # indexes for t = min_t ~ max_t
+    main_Sa = None                       # mean for Sa between t = min_t ~ max_t
 
-    # 2. Calculate design spectrum 
-    S1D, SSD = 0.45, 0.80
-    Bs, B1 = 0.8, 0.8
-    Na, Nv = 1.37, 1.44
-    Fa, Fv = 1.0, 1.2
-    S1 = S1D * Nv
-    Ss = SSD * Na
-    SX1 = Fv * S1
-    SXS = Fa * Ss
-    T0 = (SX1 * Bs) / (SXS * B1)
-    print(f"T0 = {T0:.5f}")
+    # Taipei3 
+    S_DS = 0.6
+    T0 = 1.05
+    # print(f"T0 = {T0:.5f}")
 
-    periods = np.linspace(0.2, 10, 100)
-    design_spectrum = np.zeros(1000)
+    periods = np.linspace(0.01, 10, 100)
+    design_spectrum_BSE1 = np.zeros(100)
+    design_spectrum_BSE2 = np.zeros(100)
     for i, t in enumerate(periods):
         if t < 0.2*T0:
-            design_spectrum[i] = Fa * Ss / Bs * (0.4 + 3 * t / T0)
+            design_spectrum_BSE1[i] = S_DS * (0.4 + 3 * t / T0)
         elif t >= 0.2*T0 and t <= T0:
-            design_spectrum[i] = Fa * Ss / Bs
+            design_spectrum_BSE1[i] = S_DS
         elif t > T0:
-            design_spectrum[i] = Fv * S1 / (B1 * t)
+            design_spectrum_BSE1[i] = S_DS * T0 / t
         else:
-            design_spectrum[i] = None
+            design_spectrum_BSE1[i] = None
+
+    design_spectrum_BSE2 = design_spectrum_BSE1 * (4/3)
 
     for i, t in enumerate(periods):
         if main_start == None and t >= min_t:
@@ -42,38 +40,56 @@ def scale_gm_to_design_level(gm_path, original_gm):
         if main_end == None and t > max_t:
             main_end = i
 
-    main_Sa = np.sum(design_spectrum[main_start:main_end])
+
+    # 2. Half of the ground motion will be scaled to BSE-1 and other half BSE-2
+    ground_motion_number = len(gm_paths)
+    target_objectives = []
+    for gm_index, gm_path in enumerate(gm_paths):
+        if gm_index < ground_motion_number/2:
+            target_obj = "BSE-1"
+            design_spectrum = design_spectrum_BSE1
+        else:
+            target_obj = "BSE-2"
+            design_spectrum = design_spectrum_BSE2
+        
+        target_objectives.append(target_obj)
+
+        main_Sa = np.sum(design_spectrum[main_start:main_end])
+        dt = 0.005
+        file = np.loadtxt(gm_path)
+        gm = file[:, 1] / 1000 / 9.8
+        record = eqsig.AccSignal(gm, dt)
+        record.generate_response_spectrum(response_times=periods)
+
+        sa_sum = np.sum(record.s_a[main_start:main_end])
+        scale_factor = main_Sa / sa_sum
+
+        ground_motions[:, gm_index*10:gm_index*10+10] *= scale_factor
+
+        print(f"Ground motion {gm_index} is amplified {scale_factor:.4f} times to the design {target_obj} scale")
+
+    return ground_motions, target_objectives
 
 
-    dt = 0.005
-    file = np.loadtxt(gm_path)
-    gm = file[:, 1] / 1000 / 9.8
-    record = eqsig.AccSignal(gm, dt)
-    record.generate_response_spectrum(response_times=periods)
-
-    sa_sum = np.sum(record.s_a[main_start:main_end])
-    scale_factor = main_Sa / sa_sum
-
-    scaled_gm = original_gm * scale_factor
-
-    print(f"Ground motion is amplified {scale_factor:.4f} times to the design scale")
-
-    return scaled_gm
 
 
-
-
-def get_graph_and_index_from_ipt(ipt_path, gm_path):
+def get_graph_and_index_from_ipt(ipt_path, gm_folder, ground_motion_number, mode):
     input_file = open(ipt_path, 'r').readlines()
 
     # Ground motion has to be amplified to code level.
-    ground_motion = torch.zeros((2000, 10))
-    with open(gm_path, "r") as f:
-        for index, line in enumerate(f.readlines()):
-            i, j = index//10, index%10
-            ground_motion[i, j] = float(line.split()[1])
+    ground_motions = torch.zeros((2000, 10 * ground_motion_number))
+    gm_paths = []
+    gm_names = []
+    for gm_index, gm_name in enumerate(os.listdir(gm_folder)[:ground_motion_number]):
+        gm_names.append(gm_name)
+        gm_path = os.path.join(gm_folder, gm_name)
+        gm_paths.append(gm_path)
+        with open(gm_path, "r") as f:
+            for index, line in enumerate(f.readlines()):
+                i, j = index//10, index%10
+                ground_motions[i, gm_index * 10 + j] = float(line.split()[1])
 
-    ground_motion = scale_gm_to_design_level(gm_path, ground_motion)
+    ground_motions, target_objectives = scale_gm_to_design_level(gm_paths, ground_motions)
 
 
     node_dict = {}
@@ -130,7 +146,10 @@ def get_graph_and_index_from_ipt(ipt_path, gm_path):
                              
 
     grid_num = torch.tensor([len(x_grid), len(y_grid), len(z_grid)])
-    ptr = [0, node_count]
+    # ptr is for the duplicating x to simulate different ground motion as the same time
+    print(f"node count: {node_count}")
+    ptr = [i * node_count for i in range(ground_motion_number+1)]
+    print(f"ptr: {ptr}")
 
     x = torch.zeros((node_count, 36))
     y = torch.zeros((node_count, 2000, 21))
@@ -183,7 +202,7 @@ def get_graph_and_index_from_ipt(ipt_path, gm_path):
             # Ground Motion
             x[node_index][26:36] = 0
 
-    graph = Data(x=x, y=y, ground_motion=ground_motion, grid_num=grid_num, ptr=ptr)
+    graph = Data(x=x, y=y, ground_motions=ground_motions, grid_num=grid_num, ptr=ptr, target_objectives=target_objectives, gm_names=gm_names)
 
 
 
@@ -201,23 +220,23 @@ def get_graph_and_index_from_ipt(ipt_path, gm_path):
 
         # length
         # x_n, x_p, y_n, y_p, z_n, z_p
-        #  14   15   16   17   18   19
+        #  14   16   18   20   22   24
 
         if x1 != x2:
             # It's a x beam
             length = x2 - x1
-            x[node1_index][15] = length
+            x[node1_index][16] = length
             x[node2_index][14] = length
         elif y1 != y2:
             # It's a column
             length = y2 - y1
-            x[node1_index][17] = length
-            x[node2_index][16] = length
+            x[node1_index][20] = length
+            x[node2_index][18] = length
         elif z1 != z2:
             # It's a z beam
             length = z2 - z1
-            x[node1_index][19] = length
-            x[node2_index][18] = length
+            x[node1_index][24] = length
+            x[node2_index][22] = length
 
 
     # Make element selection order
@@ -225,15 +244,18 @@ def get_graph_and_index_from_ipt(ipt_path, gm_path):
 
     # My
     # x_n, x_p, y_n, y_p, z_n, z_p
-    #  20   21   22   23   24   25
+    #  15   17   19   21   23   25
 
     element_count = 0
-    element_category_list = []  # [0, 0, 0, 1, 1, 1, ......] beam(1) or column(0)
+    story_element_category_list = []  # [0, 0, 0, 1, 1, 1, ......] beam(1) or column(0) number: decisions, if mode==story, then only a few decisions.
+    story_element_index_list = []     # [[0, 15], [15, 30], [30, 45]]   The index where each story element corresponding to each element. 
+    each_element_category_list = []     # [0, 0, 0, 1, 1, 1, .....] number: total beam/column
     element_node_dict = {}      # key: element_index, value: [node1_index, node2_index, node1_face (My's index), node2_face]
     node_element_dict = {}      # key: node1Name_node2Name, value: element_index
     element_length_list = []    # [l1, l2, l3, .....]
 
     for y in y_grid[:-1]:
+        initial_count = element_count
         for x in x_grid:
             for z in z_grid:
                 coord1 = f"{x}_{y}_{z}"
@@ -241,45 +263,61 @@ def get_graph_and_index_from_ipt(ipt_path, gm_path):
                 coord2 = f"{x}_{coord2_y}_{z}"
                 node1_index = coord_node_dict[coord1]
                 node2_index = coord_node_dict[coord2]
-                element_node_dict[element_count] = [node1_index, node2_index, 23, 22]
+                element_node_dict[element_count] = [node1_index, node2_index, 21, 19]
                 node_element_dict[f"{index_node_dict[node1_index]}_{index_node_dict[node2_index]}"] = element_count
                 element_count += 1
-                element_category_list.append(0)  # 1 is beam, 0 is column
+                each_element_category_list.append(0)  # 1 is beam, 0 is column
                 element_length_list.append((coord2_y - y)/1000)
+        story_element_category_list.append(0)
+        story_element_index_list.append([initial_count, element_count])
 
     for y in y_grid[1:]:
         # x beam
+        initial_count = element_count
         for z in z_grid:
             for x in x_grid[:-1]:
                 coord1 = f"{x}_{y}_{z}"
                 coord2 = f"{x+x_grid_space}_{y}_{z}"
                 node1_index = coord_node_dict[coord1]
                 node2_index = coord_node_dict[coord2]
-                element_node_dict[element_count] = [node1_index, node2_index, 21, 20]
+                element_node_dict[element_count] = [node1_index, node2_index, 17, 15]
                 node_element_dict[f"{index_node_dict[node1_index]}_{index_node_dict[node2_index]}"] = element_count
                 element_count += 1
-                element_category_list.append(1)
+                each_element_category_list.append(1)
                 element_length_list.append(x_grid_space/1000)
+        story_element_category_list.append(1)
+        story_element_index_list.append([initial_count, element_count])
 
         # z beam
+        initial_count = element_count
         for x in x_grid:
             for z in z_grid[:-1]:
                 coord1 = f"{x}_{y}_{z}"
                 coord2 = f"{x}_{y}_{z+z_grid_space}"
                 node1_index = coord_node_dict[coord1]
                 node2_index = coord_node_dict[coord2]
-                element_node_dict[element_count] = [node1_index, node2_index, 25, 24]
+                element_node_dict[element_count] = [node1_index, node2_index, 25, 23]
                 node_element_dict[f"{index_node_dict[node1_index]}_{index_node_dict[node2_index]}"] = element_count
                 element_count += 1
-                element_category_list.append(1)
+                each_element_category_list.append(1)
                 element_length_list.append(z_grid_space/1000)
+        story_element_category_list.append(1)
+        story_element_index_list.append([initial_count, element_count])
 
 
+
+    element_category_list = story_element_category_list if mode=='story' else each_element_category_list
+
+    print(f"element_category_list num: {len(element_category_list)}")
+    print(element_category_list)
+    print("\n"*3)
+    print(f"story_element_index_list num: {len(story_element_index_list)}")
+    print(story_element_index_list)
 
     # Check element number is right
     assert len(beamcolumn_node_dict.keys()) == element_count
 
-    return graph, (element_node_dict, node_element_dict, element_category_list, element_length_list)
+    return graph, (element_node_dict, node_element_dict, element_category_list, each_element_category_list, element_length_list, story_element_index_list)
 
 
 
