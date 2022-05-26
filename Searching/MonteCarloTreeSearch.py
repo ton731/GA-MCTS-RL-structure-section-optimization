@@ -4,7 +4,7 @@ from copy import deepcopy
 
 
 
-# https://bitcrush.medium.com/%E8%92%99%E5%9C%B0%E5%8D%A1%E7%BE%85%E6%90%9C%E7%B4%A2%E6%B3%95-ee7de77940ef
+# Source: https://bitcrush.medium.com/%E8%92%99%E5%9C%B0%E5%8D%A1%E7%BE%85%E6%90%9C%E7%B4%A2%E6%B3%95-ee7de77940ef
 
 
 class Node:
@@ -78,7 +78,7 @@ class Node:
 
         # Now we have all element's section, make it as a graph and feed into LSTM to get the design score
         candidate_design = self.current_design
-        score = Node.designer.designScore(candidate_design)
+        score = Node.designer.design_score(candidate_design)
         return score
 
     def is_full_expand(self):
@@ -131,9 +131,9 @@ class MCTS:
         return current_node.current_design
 
 
-    def take_action(self, times=1000):
+    def run(self, times=1000):
         # Initialize root node
-        self.root = Node(None, None, 0, 0, Node.designer.get_initital_design())
+        self.root = Node(None, None, 0, 0, Node.designer.get_initital_state())
         self.current_node = self.root
 
         # Simulation

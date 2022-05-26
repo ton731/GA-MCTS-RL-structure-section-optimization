@@ -73,6 +73,7 @@ class StructureDesigner:
 
         # 4. Initial Design
         self.current_design = None
+        self.current_index = 0
 
 
         self._initialize_simulator_envrimoment()
@@ -115,6 +116,7 @@ class StructureDesigner:
 
     def _initialize_design(self):
         self.current_design = []
+        self.current_index = 0
         for i in range(self.total_design_elements):
             if self.element_category_list[i] == 1:   # this elem is beam
                 self.current_design.append("W21x44")
@@ -130,6 +132,31 @@ class StructureDesigner:
                 element_design[index] = section
         return element_design
 
+
+    def initialize_state(self):
+        self._initialize_design()
+
+
+    def get_initital_state(self):
+        self.initialize_design()
+        return self.current_design
+
+
+    def steps(self):
+        return self.total_design_elements
+
+
+    def get_state(self):
+        return self.current_design
+
+
+    def get_state_index(self):
+        return self.current_index
+
+    
+    def is_final_state(self):
+        return self.current_index == self.total_design_elements
+
     
     def available_actions(self, elem_index=None, is_beam=None):
         if elem_index != None:
@@ -140,20 +167,19 @@ class StructureDesigner:
             raise ValueError("Please select either elem_idnex or is_beam to get available actions.")
 
 
-    def initialize_design(self):
-        self._initialize_design()
+    def take_action(self, action):
+        # check if final state already
+        if self.is_final_state():
+            raise ValueError("Already in final state, cannot take action anymore.")
+        # action should be a beam/column section
+        assert type(action) == str
+        self.current_design[self.current_index] = action
+        self.current_index += 1
 
 
-    def get_initital_design(self):
-        self.initialize_design()
-        return self.current_design
-
-
-    def steps(self):
-        return self.total_design_elements
-
-
-    def designScore(self, candidate_design=None):
+    def design_score(self, candidate_design=None):
+        if candidate_design == None:
+            candidate_design = self.current_design
         if self.mode == 'story':
             candidate_design = self._story_to_element(candidate_design)
         modal_result = analysis.run_modal_analysis(self, candidate_design)
@@ -164,11 +190,8 @@ class StructureDesigner:
 
 
     def visualize_response(self, final_design=None):
-        # for gm_index in range(3):
-        #     import matplotlib.pyplot as plt
-        #     plt.plot(self.graph.ground_motions[:, gm_index*10].cpu().numpy())
-        #     plt.show()
-
+        if final_design == None:
+            final_design = self.current_design
         if self.mode == 'story':
             final_design = self._story_to_element(final_design)
         response_folder = join(self.output_folder, "Response")
@@ -193,6 +216,8 @@ class StructureDesigner:
 
 
     def output_design(self, final_design=None):
+        if final_design == None:
+            final_design == self.current_design
         if self.mode == 'story':
             final_design = self._story_to_element(final_design)
         geometry.reconstruct_ipt_file(self.ipt_path, self.output_path, final_design, self.node_element_dict)
