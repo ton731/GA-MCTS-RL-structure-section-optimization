@@ -8,9 +8,9 @@ eigen_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Eigen"
 # modal_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Modal"
 
 
-def run_modal_analysis(designer, candidate_design):
+def run_modal_analysis(designer, simulator, candidate_design):
     input_file = open(designer.ipt_path, 'r').readlines()
-    with open(designer.analysis_path, 'w') as f:
+    with open(simulator.analysis_path, 'w') as f:
         for line in input_file:
             if "# Analysis  ModeShape" in line:
                 new_line = line.replace("# Analysis  ModeShape", "Analysis  ModeShape")
@@ -32,7 +32,7 @@ def run_modal_analysis(designer, candidate_design):
                 f.write(line)
 
     # Run modal analysis
-    modal_path = designer.analysis_path.split(".")[0]
+    modal_path = simulator.analysis_path.split(".")[0]
     # Hide os.system output from terminal:
     # https://stackoverflow.com/questions/33985863/hiding-console-output-produced-by-os-system
     # os.system(pisa + " " + modal_path + " " + ">/null 2>&1")
@@ -77,17 +77,17 @@ def check_modal_analysis():
 
 
 
-def make_section_graph(designer, graph, candidate_design, modal_result):
+def make_section_graph(designer, simulator, graph, candidate_design, modal_result):
     # element_node_dict --> key: element_index, value: [node1_index, node2_index, node1_face (My's index), node2_face]
     for element_index, section in enumerate(candidate_design):
         node1_index, node2_index, node1_face, node2_face = designer.element_node_dict[element_index]
-        graph.x[node1_index, node1_face] = designer.My_dict[section]
-        graph.x[node2_index, node2_face] = designer.My_dict[section]
+        graph.x[node1_index, node1_face] = simulator.My_dict[section]
+        graph.x[node2_index, node2_face] = simulator.My_dict[section]
     
     # modal result: normalize --> add to node feature
     first_mode_period, node_first_mode_shape = modal_result
-    first_mode_period /= designer.norm_dict["period"]
-    node_first_mode_shape /= designer.norm_dict["modal_shape"] 
+    first_mode_period /= simulator.norm_dict["period"]
+    node_first_mode_shape /= simulator.norm_dict["modal_shape"] 
     graph.x[:, 6] = first_mode_period
     graph.x[:, 11:14] = node_first_mode_shape
 
@@ -96,17 +96,18 @@ def make_section_graph(designer, graph, candidate_design, modal_result):
 
 
 
-def predict(designer, candidate_graph):
-    graph = candidate_graph.to(designer.device)
-    duplicate_x = graph.x.repeat(designer.ground_motion_number, 1)    # duplicate x from [graph_nodes, features] to [graph_nodes * gm_num, features]
+def predict(simulator, candidate_graph):
+    device = simulator.device
+    graph = candidate_graph.to(device)
+    duplicate_x = graph.x.repeat(simulator.ground_motion_number, 1).to(device)    # duplicate x from [graph_nodes, features] to [graph_nodes * gm_num, features]
 
-    designer.model.eval()
+    simulator.model.eval()
     with torch.no_grad():
-        output = torch.zeros((graph.y.shape[0] * designer.ground_motion_number, graph.y.shape[1], designer.model.output_dim)).to(designer.device)
-        H_list = [None for i in range(designer.model.num_layers)]
-        C_list = [None for i in range(designer.model.num_layers)]
-        for i, gm in enumerate(graph.ground_motions):
-            H_list, C_list, out = designer.model(gm, duplicate_x, None, None, graph.ptr, H_list, C_list)
+        output = torch.zeros((graph.y.shape[0] * simulator.ground_motion_number, graph.y.shape[1], simulator.model.output_dim)).to(device)
+        H_list = [None for i in range(simulator.model.num_layers)]
+        C_list = [None for i in range(simulator.model.num_layers)]
+        for i, gm in enumerate(simulator.ground_motions):
+            H_list, C_list, out = simulator.model(gm, duplicate_x, None, None, graph.ptr, H_list, C_list)
             output[:, i, :] = out
     return output
 

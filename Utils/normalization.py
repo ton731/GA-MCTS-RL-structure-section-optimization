@@ -3,11 +3,7 @@ from copy import deepcopy
 
 
 # normalize
-def normalize(original_graph, norm_dict):
-    graph = deepcopy(original_graph)
-
-    graph.ground_motions = graph.ground_motions / norm_dict['ground_motion']
-
+def normalize(graph, norm_dict):
     graph.x[:, :3] = graph.x[:, :3] / norm_dict['grid_num']
     graph.x[:, 3:6] = graph.x[:, 3:6] / norm_dict['coord']
     graph.x[:, 6] = graph.x[:, 6] / norm_dict['period']
@@ -21,6 +17,11 @@ def normalize(original_graph, norm_dict):
     assert graph.x.shape[1] == 36
 
     return graph
+
+
+def normalize_ground_motion(ground_motions, norm_dict):
+    ground_motions = ground_motions / norm_dict['ground_motion']
+    return ground_motions
 
 
 

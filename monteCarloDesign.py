@@ -1,55 +1,41 @@
-import torch
-import random
-import numpy as np
 import sys
-
 sys.path.append('Utils/')
 sys.path.append('Searching/')
 sys.path.append('Models/')
 
 
-from Models import LSTM
-from Utils import geometry
-from Utils import normalization
 from Searching import MonteCarloTreeSearch
-import StructureDesigner
+from Searching import Agent
+from Searching import Environment
 
 
 
-# Settings
-# random seed
-SEED = 731
-random.seed(SEED)
-np.random.seed(SEED)
-torch.manual_seed(SEED)
-torch.cuda.manual_seed(SEED)
-torch.backends.cudnn.deterministic = True
 
-# device
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
-GPU_name = torch.cuda.get_device_name()
-print("My GPU is {}\n".format(GPU_name))
-
-
-
-# Structure Designer
+# Define simulator model path and the ground motion number that will be used in seismic performance.
 simulator_path = "Simulator/2022_05_24__11_56_43"
-ground_motion_number = 3
-designer_args = {"simulator_path": simulator_path, "ground_motion_number": ground_motion_number,
-                 "mode": "story", "method": "MCTS"}
-designer = StructureDesigner.StructureDesigner(**designer_args)
+ground_motion_number = 1
+
+# Environment
+env_args = {"simulator_path": simulator_path, "ground_motion_number": ground_motion_number, "method": "MCTS"}
+env = Environment.StructureSimulator(**env_args)
+
+# Agent
+agent_args = {"mode": "story", "environment": env}
+agent = Agent.StructureDesigner(**agent_args)
 
 
 
-# 3. Use MCTS to get the best beam_column design list.
-rounds = 2
-mcts = MonteCarloTreeSearch.MCTS(designer=designer)
+# Use your models to get the best beam_column design list.
+rounds = 100
+mcts = MonteCarloTreeSearch.MCTS(agent=agent, env=env)
 final_design = mcts.run(rounds)
-designer.output_design(final_design)
-print()
-print("Final design:")
-print(final_design, end='\n\n')
-designer.visualize_response(final_design)
+print(f"\nFinal design: \n{final_design}\n\n")
+
+# Output the final design to .ipt file (which can be opened by PISA3D software).
+agent.output_design(final_design)
+
+# Visualize the seismic response under design-earthquakes. (This is not nececessary!)
+# agent.visualize_response(final_design)
 
 
 

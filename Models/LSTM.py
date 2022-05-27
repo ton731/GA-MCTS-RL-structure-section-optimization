@@ -1,4 +1,3 @@
-from distutils.dir_util import create_tree
 import torch
 import torch.nn as nn
 from .layers import *

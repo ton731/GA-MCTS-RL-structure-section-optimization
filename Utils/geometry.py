@@ -1,8 +1,8 @@
 import torch
-from torch_geometric.data import Data
 import numpy as np
 import os
 import eqsig.single
+from copy import deepcopy
 from .sections import *
 
 
@@ -72,10 +72,7 @@ def scale_gm_to_design_level(gm_paths, ground_motions):
 
 
 
-
-def get_graph_and_index_from_ipt(ipt_path, gm_folder, ground_motion_number, mode):
-    input_file = open(ipt_path, 'r').readlines()
-
+def get_design_groundMotions_from_folder(gm_folder, ground_motion_number):
     # Ground motion has to be amplified to code level.
     ground_motions = torch.zeros((2000, 10 * ground_motion_number))
     gm_paths = []
@@ -90,7 +87,31 @@ def get_graph_and_index_from_ipt(ipt_path, gm_folder, ground_motion_number, mode
                 ground_motions[i, gm_index * 10 + j] = float(line.split()[1])
 
     ground_motions, target_objectives = scale_gm_to_design_level(gm_paths, ground_motions)
+    return (ground_motions, target_objectives, gm_names)
 
+
+
+
+
+class Graph:
+    def __init__(self, x=None, y=None, grid_num=None, ptr=None):
+        self.x = x
+        self.y = y
+        self.grid_num = grid_num
+        self.ptr = ptr
+
+    def __str__(self):
+        return f"Self-defined Graph: x: {self.x.shape}, y: {self.y.shape}, grid_num: {self.grid_num}, ptr: {self.ptr}"
+
+    def to(self, device="cuda"):
+        self.x.to(device)
+        self.y.to(device)
+        return deepcopy(self)
+
+
+
+def get_graph_and_index_from_ipt(ipt_path, mode, ground_motion_number):
+    input_file = open(ipt_path, 'r').readlines()
 
     node_dict = {}
     index_node_dict = {}
@@ -202,7 +223,7 @@ def get_graph_and_index_from_ipt(ipt_path, gm_folder, ground_motion_number, mode
             # Ground Motion
             x[node_index][26:36] = 0
 
-    graph = Data(x=x, y=y, ground_motions=ground_motions, grid_num=grid_num, ptr=ptr, target_objectives=target_objectives, gm_names=gm_names)
+    graph = Graph(x=x, y=y, grid_num=grid_num, ptr=ptr)
 
 
 
