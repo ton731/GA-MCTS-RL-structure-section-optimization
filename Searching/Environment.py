@@ -25,6 +25,7 @@ class StructureSimulator:
         self.time = datetime.now().strftime("%Y_%m_%d__%H_%M_%S")
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.simulator_path = simulator_path
+        self.model_path = join(self.simulator_path, "model.pt")
         self.args_path = None
         self.norm_dict_path = None
         self.args = None
@@ -37,7 +38,6 @@ class StructureSimulator:
         # 2. Simulator processing folder
         self.simulation_processing_dir = "Files"
         self.gm_folder = None
-        self.candidate_path = None
         self.analysis_path = None
         self.output_folder = None
         self.output_path = None
@@ -86,7 +86,6 @@ class StructureSimulator:
 
     def _initialize_simulator_processing_folder(self):
         self.gm_folder = join(self.simulation_processing_dir, "Input/GroundMotions")
-        self.candidate_path = join(self.simulation_processing_dir, "Candidate/candidate.ipt")
         self.analysis_path = join(self.simulation_processing_dir, "Analysis/modal.ipt")
 
         self.output_folder = join(self.simulation_processing_dir, f"Output/{self.method}")
@@ -103,6 +102,9 @@ class StructureSimulator:
             'input_dim': 36, 'hidden_dim': self.args["hidden_dim"], 'output_dim': 15,
             'num_layers': self.args["num_layers"]}
         self.model = LSTM.LSTM(**self.model_constructor_args).to(self.device)
+        self.model.load_state_dict(torch.load(self.model_path))
+        print("LSTM model: ")
+        print(self.model)
 
 
     def _initialize_design_groundMotions(self):

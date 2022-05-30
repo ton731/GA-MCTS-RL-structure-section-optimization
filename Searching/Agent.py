@@ -30,6 +30,8 @@ class StructureDesigner:
         self.each_element_category_list = None
         self.story_element_index_list = None
         self.element_length_list = None
+        self.node_drift_node_dict = None
+        self.story_num = None
         self.min_max_usage = None
         self.total_design_elements = None
         self.total_elements = None
@@ -53,7 +55,9 @@ class StructureDesigner:
         print("Pre-processing structural graph......")
         self.ipt_path = os.path.join(self.simulation_processing_dir, "Input/structure.ipt")
         self.graph, geo_info = geometry.get_graph_and_index_from_ipt(self.ipt_path, self.mode, self.env.ground_motion_number)
-        self.element_node_dict, self.node_element_dict, self.element_category_list, self.each_element_category_list, self.element_length_list, self.story_element_index_list = geo_info
+        self.element_node_dict, self.node_element_dict, self.element_category_list, self.each_element_category_list, self.element_length_list, self.story_element_index_list, self.node_drift_node_dict = geo_info
+        self.story_num = len(self.node_drift_node_dict.keys())
+        print(f"The structure has {self.story_num} stories.")
         self.graph = normalization.normalize(self.graph, self.env.norm_dict)
         self.min_max_usage = geometry.get_min_max_usage(self.each_element_category_list, self.element_length_list, self.env.area_dict)
         self.total_design_elements = len(self.element_category_list)
@@ -70,13 +74,7 @@ class StructureDesigner:
                 self.current_design.append("16x16x0.375")
 
 
-    def _story_to_element(self, design):
-        # convert from story section to element_section
-        element_design = [None for _ in range(self.total_elements)]
-        for i, section in enumerate(design):
-            for index in range(self.story_element_index_list[i][0], self.story_element_index_list[i][1]):
-                element_design[index] = section
-        return element_design
+    
 
 
     def initialize_state(self):
@@ -118,6 +116,54 @@ class StructureDesigner:
         self.current_index += 1
 
 
+    # The decorator which convert the design to element design first.
+    def _story_to_element(callback):
+        def run(self, design=None, checkpoint_name=None):
+            if design == None:
+                design = self.current_design
+            if len(design) != self.total_elements:
+                element_design = [None for _ in range(self.total_elements)]
+                for i, section in enumerate(design):
+                    for index in range(self.story_element_index_list[i][0], self.story_element_index_list[i][1]):
+                        element_design[index] = section
+                design = element_design
+            return callback(self, design, checkpoint_name)
+        return run
+            
+
+    @_story_to_element
+    def get_design(self, design, _):
+        return design
+
+    
+    @_story_to_element
+    def output_design(self, final_design, checkpoint_name):
+        if checkpoint_name != None:
+            output_path = os.path.join(self.env.output_folder, f"{checkpoint_name}.ipt")
+        else:
+            output_path = self.env.output_path
+        geometry.reconstruct_ipt_file(self.ipt_path, output_path, final_design, self.node_element_dict)
+
+
+    @_story_to_element
+    def visualize_response(self, final_design, _):
+        self.env.visualize_response(self, final_design)
+
+
+
+
+
+    # Try these with decorator
+    '''
+    def _story_to_element(self, design):
+        # convert from story section to element_section
+        element_design = [None for _ in range(self.total_elements)]
+        for i, section in enumerate(design):
+            for index in range(self.story_element_index_list[i][0], self.story_element_index_list[i][1]):
+                element_design[index] = section
+        return element_design
+
+
     # Convert a 'story' mode stroy design to element design
     def get_design(self, design=None):
         if design == None:
@@ -139,7 +185,7 @@ class StructureDesigner:
         if len(final_design) != self.total_elements:
             final_design = self._story_to_element(final_design)
         self.env.visualize_response(self, final_design)
-
+    '''
 
 
 

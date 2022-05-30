@@ -406,574 +406,574 @@
 
    Tag       Type                          Parameters
  --------  ---------------  -----------------------------------------------------
-   E1        BeamColumn     I=N1 J=N17 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E1        BeamColumn     I=N1 J=N17 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E2        BeamColumn     I=N2 J=N18 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E2        BeamColumn     I=N2 J=N18 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E3        BeamColumn     I=N17 J=N18 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E3        BeamColumn     I=N17 J=N18 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E4        BeamColumn     I=N3 J=N19 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E4        BeamColumn     I=N3 J=N19 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E5        BeamColumn     I=N18 J=N19 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E5        BeamColumn     I=N18 J=N19 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E6        BeamColumn     I=N4 J=N20 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E6        BeamColumn     I=N4 J=N20 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E7        BeamColumn     I=N19 J=N20 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E7        BeamColumn     I=N19 J=N20 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E8        BeamColumn     I=N5 J=N21 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E8        BeamColumn     I=N5 J=N21 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E9        BeamColumn     I=N17 J=N21 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E9        BeamColumn     I=N17 J=N21 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E10       BeamColumn     I=N6 J=N22 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E10       BeamColumn     I=N6 J=N22 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E11       BeamColumn     I=N18 J=N22 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E11       BeamColumn     I=N18 J=N22 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E12       BeamColumn     I=N21 J=N22 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E12       BeamColumn     I=N21 J=N22 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E13       BeamColumn     I=N7 J=N23 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E13       BeamColumn     I=N7 J=N23 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E14       BeamColumn     I=N19 J=N23 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E14       BeamColumn     I=N19 J=N23 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E15       BeamColumn     I=N22 J=N23 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E15       BeamColumn     I=N22 J=N23 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E16       BeamColumn     I=N8 J=N24 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E16       BeamColumn     I=N8 J=N24 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E17       BeamColumn     I=N20 J=N24 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E17       BeamColumn     I=N20 J=N24 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E18       BeamColumn     I=N23 J=N24 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E18       BeamColumn     I=N23 J=N24 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E19       BeamColumn     I=N9 J=N25 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E19       BeamColumn     I=N9 J=N25 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E20       BeamColumn     I=N21 J=N25 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E20       BeamColumn     I=N21 J=N25 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E21       BeamColumn     I=N10 J=N26 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E21       BeamColumn     I=N10 J=N26 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E22       BeamColumn     I=N22 J=N26 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E22       BeamColumn     I=N22 J=N26 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E23       BeamColumn     I=N25 J=N26 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E23       BeamColumn     I=N25 J=N26 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E24       BeamColumn     I=N11 J=N27 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E24       BeamColumn     I=N11 J=N27 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E25       BeamColumn     I=N23 J=N27 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E25       BeamColumn     I=N23 J=N27 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E26       BeamColumn     I=N26 J=N27 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E26       BeamColumn     I=N26 J=N27 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E27       BeamColumn     I=N12 J=N28 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E27       BeamColumn     I=N12 J=N28 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E28       BeamColumn     I=N24 J=N28 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E28       BeamColumn     I=N24 J=N28 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E29       BeamColumn     I=N27 J=N28 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E29       BeamColumn     I=N27 J=N28 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E30       BeamColumn     I=N13 J=N29 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E30       BeamColumn     I=N13 J=N29 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E31       BeamColumn     I=N25 J=N29 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E31       BeamColumn     I=N25 J=N29 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E32       BeamColumn     I=N14 J=N30 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E32       BeamColumn     I=N14 J=N30 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E33       BeamColumn     I=N26 J=N30 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E33       BeamColumn     I=N26 J=N30 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E34       BeamColumn     I=N29 J=N30 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E34       BeamColumn     I=N29 J=N30 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E35       BeamColumn     I=N15 J=N31 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E35       BeamColumn     I=N15 J=N31 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E36       BeamColumn     I=N27 J=N31 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E36       BeamColumn     I=N27 J=N31 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E37       BeamColumn     I=N30 J=N31 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E37       BeamColumn     I=N30 J=N31 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E38       BeamColumn     I=N16 J=N32 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E38       BeamColumn     I=N16 J=N32 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E39       BeamColumn     I=N28 J=N32 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E39       BeamColumn     I=N28 J=N32 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E40       BeamColumn     I=N31 J=N32 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E40       BeamColumn     I=N31 J=N32 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E41       BeamColumn     I=N17 J=N33 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E41       BeamColumn     I=N17 J=N33 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E42       BeamColumn     I=N18 J=N34 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E42       BeamColumn     I=N18 J=N34 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E43       BeamColumn     I=N33 J=N34 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E43       BeamColumn     I=N33 J=N34 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E44       BeamColumn     I=N19 J=N35 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E44       BeamColumn     I=N19 J=N35 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E45       BeamColumn     I=N34 J=N35 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E45       BeamColumn     I=N34 J=N35 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E46       BeamColumn     I=N20 J=N36 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E46       BeamColumn     I=N20 J=N36 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E47       BeamColumn     I=N35 J=N36 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E47       BeamColumn     I=N35 J=N36 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E48       BeamColumn     I=N21 J=N37 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E48       BeamColumn     I=N21 J=N37 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E49       BeamColumn     I=N33 J=N37 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E49       BeamColumn     I=N33 J=N37 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E50       BeamColumn     I=N22 J=N38 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E50       BeamColumn     I=N22 J=N38 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E51       BeamColumn     I=N34 J=N38 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E51       BeamColumn     I=N34 J=N38 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E52       BeamColumn     I=N37 J=N38 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E52       BeamColumn     I=N37 J=N38 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E53       BeamColumn     I=N23 J=N39 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E53       BeamColumn     I=N23 J=N39 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E54       BeamColumn     I=N35 J=N39 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E54       BeamColumn     I=N35 J=N39 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E55       BeamColumn     I=N38 J=N39 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E55       BeamColumn     I=N38 J=N39 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E56       BeamColumn     I=N24 J=N40 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E56       BeamColumn     I=N24 J=N40 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E57       BeamColumn     I=N36 J=N40 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E57       BeamColumn     I=N36 J=N40 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E58       BeamColumn     I=N39 J=N40 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E58       BeamColumn     I=N39 J=N40 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E59       BeamColumn     I=N25 J=N41 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E59       BeamColumn     I=N25 J=N41 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E60       BeamColumn     I=N37 J=N41 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E60       BeamColumn     I=N37 J=N41 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E61       BeamColumn     I=N26 J=N42 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E61       BeamColumn     I=N26 J=N42 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E62       BeamColumn     I=N38 J=N42 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E62       BeamColumn     I=N38 J=N42 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E63       BeamColumn     I=N41 J=N42 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E63       BeamColumn     I=N41 J=N42 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E64       BeamColumn     I=N27 J=N43 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E64       BeamColumn     I=N27 J=N43 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E65       BeamColumn     I=N39 J=N43 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E65       BeamColumn     I=N39 J=N43 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E66       BeamColumn     I=N42 J=N43 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E66       BeamColumn     I=N42 J=N43 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E67       BeamColumn     I=N28 J=N44 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E67       BeamColumn     I=N28 J=N44 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E68       BeamColumn     I=N40 J=N44 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E68       BeamColumn     I=N40 J=N44 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E69       BeamColumn     I=N43 J=N44 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E69       BeamColumn     I=N43 J=N44 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E70       BeamColumn     I=N29 J=N45 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E70       BeamColumn     I=N29 J=N45 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E71       BeamColumn     I=N41 J=N45 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E71       BeamColumn     I=N41 J=N45 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E72       BeamColumn     I=N30 J=N46 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E72       BeamColumn     I=N30 J=N46 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E73       BeamColumn     I=N42 J=N46 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E73       BeamColumn     I=N42 J=N46 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E74       BeamColumn     I=N45 J=N46 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E74       BeamColumn     I=N45 J=N46 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E75       BeamColumn     I=N31 J=N47 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E75       BeamColumn     I=N31 J=N47 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E76       BeamColumn     I=N43 J=N47 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E76       BeamColumn     I=N43 J=N47 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E77       BeamColumn     I=N46 J=N47 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E77       BeamColumn     I=N46 J=N47 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E78       BeamColumn     I=N32 J=N48 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E78       BeamColumn     I=N32 J=N48 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E79       BeamColumn     I=N44 J=N48 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E79       BeamColumn     I=N44 J=N48 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E80       BeamColumn     I=N47 J=N48 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E80       BeamColumn     I=N47 J=N48 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E81       BeamColumn     I=N33 J=N49 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E81       BeamColumn     I=N33 J=N49 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E82       BeamColumn     I=N34 J=N50 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E82       BeamColumn     I=N34 J=N50 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E83       BeamColumn     I=N49 J=N50 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E83       BeamColumn     I=N49 J=N50 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E84       BeamColumn     I=N35 J=N51 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E84       BeamColumn     I=N35 J=N51 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E85       BeamColumn     I=N50 J=N51 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E85       BeamColumn     I=N50 J=N51 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E86       BeamColumn     I=N36 J=N52 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E86       BeamColumn     I=N36 J=N52 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E87       BeamColumn     I=N51 J=N52 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E87       BeamColumn     I=N51 J=N52 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E88       BeamColumn     I=N37 J=N53 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E88       BeamColumn     I=N37 J=N53 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E89       BeamColumn     I=N49 J=N53 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E89       BeamColumn     I=N49 J=N53 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E90       BeamColumn     I=N38 J=N54 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E90       BeamColumn     I=N38 J=N54 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E91       BeamColumn     I=N50 J=N54 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E91       BeamColumn     I=N50 J=N54 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E92       BeamColumn     I=N53 J=N54 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E92       BeamColumn     I=N53 J=N54 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E93       BeamColumn     I=N39 J=N55 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E93       BeamColumn     I=N39 J=N55 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E94       BeamColumn     I=N51 J=N55 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E94       BeamColumn     I=N51 J=N55 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E95       BeamColumn     I=N54 J=N55 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E95       BeamColumn     I=N54 J=N55 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E96       BeamColumn     I=N40 J=N56 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E96       BeamColumn     I=N40 J=N56 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E97       BeamColumn     I=N52 J=N56 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E97       BeamColumn     I=N52 J=N56 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E98       BeamColumn     I=N55 J=N56 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E98       BeamColumn     I=N55 J=N56 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E99       BeamColumn     I=N41 J=N57 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E99       BeamColumn     I=N41 J=N57 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E100      BeamColumn     I=N53 J=N57 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E100      BeamColumn     I=N53 J=N57 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E101      BeamColumn     I=N42 J=N58 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E101      BeamColumn     I=N42 J=N58 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E102      BeamColumn     I=N54 J=N58 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E102      BeamColumn     I=N54 J=N58 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E103      BeamColumn     I=N57 J=N58 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E103      BeamColumn     I=N57 J=N58 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E104      BeamColumn     I=N43 J=N59 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E104      BeamColumn     I=N43 J=N59 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E105      BeamColumn     I=N55 J=N59 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E105      BeamColumn     I=N55 J=N59 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E106      BeamColumn     I=N58 J=N59 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E106      BeamColumn     I=N58 J=N59 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E107      BeamColumn     I=N44 J=N60 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E107      BeamColumn     I=N44 J=N60 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E108      BeamColumn     I=N56 J=N60 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E108      BeamColumn     I=N56 J=N60 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E109      BeamColumn     I=N59 J=N60 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E109      BeamColumn     I=N59 J=N60 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E110      BeamColumn     I=N45 J=N61 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E110      BeamColumn     I=N45 J=N61 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E111      BeamColumn     I=N57 J=N61 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E111      BeamColumn     I=N57 J=N61 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E112      BeamColumn     I=N46 J=N62 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E112      BeamColumn     I=N46 J=N62 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E113      BeamColumn     I=N58 J=N62 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E113      BeamColumn     I=N58 J=N62 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E114      BeamColumn     I=N61 J=N62 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E114      BeamColumn     I=N61 J=N62 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E115      BeamColumn     I=N47 J=N63 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E115      BeamColumn     I=N47 J=N63 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E116      BeamColumn     I=N59 J=N63 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E116      BeamColumn     I=N59 J=N63 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E117      BeamColumn     I=N62 J=N63 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E117      BeamColumn     I=N62 J=N63 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E118      BeamColumn     I=N48 J=N64 Sec.=16X16X0.625 REZ=None E_Gp=0 F_Gp=0
+   E118      BeamColumn     I=N48 J=N64 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E119      BeamColumn     I=N60 J=N64 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E119      BeamColumn     I=N60 J=N64 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E120      BeamColumn     I=N63 J=N64 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E120      BeamColumn     I=N63 J=N64 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E121      BeamColumn     I=N49 J=N65 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E121      BeamColumn     I=N49 J=N65 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E122      BeamColumn     I=N50 J=N66 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E122      BeamColumn     I=N50 J=N66 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E123      BeamColumn     I=N65 J=N66 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E123      BeamColumn     I=N65 J=N66 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E124      BeamColumn     I=N51 J=N67 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E124      BeamColumn     I=N51 J=N67 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E125      BeamColumn     I=N66 J=N67 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E125      BeamColumn     I=N66 J=N67 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E126      BeamColumn     I=N52 J=N68 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E126      BeamColumn     I=N52 J=N68 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E127      BeamColumn     I=N67 J=N68 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E127      BeamColumn     I=N67 J=N68 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E128      BeamColumn     I=N53 J=N69 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E128      BeamColumn     I=N53 J=N69 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E129      BeamColumn     I=N65 J=N69 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E129      BeamColumn     I=N65 J=N69 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E130      BeamColumn     I=N54 J=N70 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E130      BeamColumn     I=N54 J=N70 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E131      BeamColumn     I=N66 J=N70 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E131      BeamColumn     I=N66 J=N70 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E132      BeamColumn     I=N69 J=N70 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E132      BeamColumn     I=N69 J=N70 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E133      BeamColumn     I=N55 J=N71 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E133      BeamColumn     I=N55 J=N71 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E134      BeamColumn     I=N67 J=N71 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E134      BeamColumn     I=N67 J=N71 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E135      BeamColumn     I=N70 J=N71 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E135      BeamColumn     I=N70 J=N71 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E136      BeamColumn     I=N56 J=N72 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E136      BeamColumn     I=N56 J=N72 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E137      BeamColumn     I=N68 J=N72 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E137      BeamColumn     I=N68 J=N72 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E138      BeamColumn     I=N71 J=N72 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E138      BeamColumn     I=N71 J=N72 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E139      BeamColumn     I=N57 J=N73 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E139      BeamColumn     I=N57 J=N73 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E140      BeamColumn     I=N69 J=N73 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E140      BeamColumn     I=N69 J=N73 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E141      BeamColumn     I=N58 J=N74 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E141      BeamColumn     I=N58 J=N74 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E142      BeamColumn     I=N70 J=N74 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E142      BeamColumn     I=N70 J=N74 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E143      BeamColumn     I=N73 J=N74 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E143      BeamColumn     I=N73 J=N74 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E144      BeamColumn     I=N59 J=N75 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E144      BeamColumn     I=N59 J=N75 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E145      BeamColumn     I=N71 J=N75 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E145      BeamColumn     I=N71 J=N75 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E146      BeamColumn     I=N74 J=N75 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E146      BeamColumn     I=N74 J=N75 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E147      BeamColumn     I=N60 J=N76 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E147      BeamColumn     I=N60 J=N76 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E148      BeamColumn     I=N72 J=N76 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E148      BeamColumn     I=N72 J=N76 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E149      BeamColumn     I=N75 J=N76 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E149      BeamColumn     I=N75 J=N76 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E150      BeamColumn     I=N61 J=N77 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E150      BeamColumn     I=N61 J=N77 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E151      BeamColumn     I=N73 J=N77 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E151      BeamColumn     I=N73 J=N77 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E152      BeamColumn     I=N62 J=N78 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E152      BeamColumn     I=N62 J=N78 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E153      BeamColumn     I=N74 J=N78 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E153      BeamColumn     I=N74 J=N78 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E154      BeamColumn     I=N77 J=N78 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E154      BeamColumn     I=N77 J=N78 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E155      BeamColumn     I=N63 J=N79 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E155      BeamColumn     I=N63 J=N79 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E156      BeamColumn     I=N75 J=N79 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E156      BeamColumn     I=N75 J=N79 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E157      BeamColumn     I=N78 J=N79 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E157      BeamColumn     I=N78 J=N79 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E158      BeamColumn     I=N64 J=N80 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E158      BeamColumn     I=N64 J=N80 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E159      BeamColumn     I=N76 J=N80 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E159      BeamColumn     I=N76 J=N80 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E160      BeamColumn     I=N79 J=N80 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E160      BeamColumn     I=N79 J=N80 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E161      BeamColumn     I=N65 J=N81 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E161      BeamColumn     I=N65 J=N81 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E162      BeamColumn     I=N66 J=N82 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E162      BeamColumn     I=N66 J=N82 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E163      BeamColumn     I=N81 J=N82 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E163      BeamColumn     I=N81 J=N82 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E164      BeamColumn     I=N67 J=N83 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E164      BeamColumn     I=N67 J=N83 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E165      BeamColumn     I=N82 J=N83 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E165      BeamColumn     I=N82 J=N83 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E166      BeamColumn     I=N68 J=N84 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E166      BeamColumn     I=N68 J=N84 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E167      BeamColumn     I=N83 J=N84 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E167      BeamColumn     I=N83 J=N84 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E168      BeamColumn     I=N69 J=N85 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E168      BeamColumn     I=N69 J=N85 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E169      BeamColumn     I=N81 J=N85 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E169      BeamColumn     I=N81 J=N85 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E170      BeamColumn     I=N70 J=N86 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E170      BeamColumn     I=N70 J=N86 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E171      BeamColumn     I=N82 J=N86 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E171      BeamColumn     I=N82 J=N86 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E172      BeamColumn     I=N85 J=N86 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E172      BeamColumn     I=N85 J=N86 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E173      BeamColumn     I=N71 J=N87 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E173      BeamColumn     I=N71 J=N87 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E174      BeamColumn     I=N83 J=N87 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E174      BeamColumn     I=N83 J=N87 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E175      BeamColumn     I=N86 J=N87 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E175      BeamColumn     I=N86 J=N87 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E176      BeamColumn     I=N72 J=N88 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E176      BeamColumn     I=N72 J=N88 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E177      BeamColumn     I=N84 J=N88 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E177      BeamColumn     I=N84 J=N88 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E178      BeamColumn     I=N87 J=N88 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E178      BeamColumn     I=N87 J=N88 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E179      BeamColumn     I=N73 J=N89 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E179      BeamColumn     I=N73 J=N89 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E180      BeamColumn     I=N85 J=N89 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E180      BeamColumn     I=N85 J=N89 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E181      BeamColumn     I=N74 J=N90 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E181      BeamColumn     I=N74 J=N90 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E182      BeamColumn     I=N86 J=N90 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E182      BeamColumn     I=N86 J=N90 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E183      BeamColumn     I=N89 J=N90 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E183      BeamColumn     I=N89 J=N90 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E184      BeamColumn     I=N75 J=N91 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E184      BeamColumn     I=N75 J=N91 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E185      BeamColumn     I=N87 J=N91 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E185      BeamColumn     I=N87 J=N91 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E186      BeamColumn     I=N90 J=N91 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E186      BeamColumn     I=N90 J=N91 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E187      BeamColumn     I=N76 J=N92 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E187      BeamColumn     I=N76 J=N92 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E188      BeamColumn     I=N88 J=N92 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E188      BeamColumn     I=N88 J=N92 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E189      BeamColumn     I=N91 J=N92 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E189      BeamColumn     I=N91 J=N92 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E190      BeamColumn     I=N77 J=N93 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E190      BeamColumn     I=N77 J=N93 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E191      BeamColumn     I=N89 J=N93 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E191      BeamColumn     I=N89 J=N93 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E192      BeamColumn     I=N78 J=N94 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E192      BeamColumn     I=N78 J=N94 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E193      BeamColumn     I=N90 J=N94 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E193      BeamColumn     I=N90 J=N94 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E194      BeamColumn     I=N93 J=N94 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E194      BeamColumn     I=N93 J=N94 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E195      BeamColumn     I=N79 J=N95 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E195      BeamColumn     I=N79 J=N95 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E196      BeamColumn     I=N91 J=N95 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E196      BeamColumn     I=N91 J=N95 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E197      BeamColumn     I=N94 J=N95 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E197      BeamColumn     I=N94 J=N95 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E198      BeamColumn     I=N80 J=N96 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E198      BeamColumn     I=N80 J=N96 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E199      BeamColumn     I=N92 J=N96 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E199      BeamColumn     I=N92 J=N96 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E200      BeamColumn     I=N95 J=N96 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E200      BeamColumn     I=N95 J=N96 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E201      BeamColumn     I=N81 J=N97 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E201      BeamColumn     I=N81 J=N97 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E202      BeamColumn     I=N82 J=N98 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E202      BeamColumn     I=N82 J=N98 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E203      BeamColumn     I=N97 J=N98 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E203      BeamColumn     I=N97 J=N98 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E204      BeamColumn     I=N83 J=N99 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E204      BeamColumn     I=N83 J=N99 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E205      BeamColumn     I=N98 J=N99 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E205      BeamColumn     I=N98 J=N99 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E206      BeamColumn     I=N84 J=N100 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E206      BeamColumn     I=N84 J=N100 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E207      BeamColumn     I=N99 J=N100 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E207      BeamColumn     I=N99 J=N100 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E208      BeamColumn     I=N85 J=N101 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E208      BeamColumn     I=N85 J=N101 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E209      BeamColumn     I=N97 J=N101 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E209      BeamColumn     I=N97 J=N101 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E210      BeamColumn     I=N86 J=N102 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E210      BeamColumn     I=N86 J=N102 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E211      BeamColumn     I=N98 J=N102 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E211      BeamColumn     I=N98 J=N102 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E212      BeamColumn     I=N101 J=N102 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E212      BeamColumn     I=N101 J=N102 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E213      BeamColumn     I=N87 J=N103 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E213      BeamColumn     I=N87 J=N103 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E214      BeamColumn     I=N99 J=N103 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E214      BeamColumn     I=N99 J=N103 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E215      BeamColumn     I=N102 J=N103 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E215      BeamColumn     I=N102 J=N103 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E216      BeamColumn     I=N88 J=N104 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E216      BeamColumn     I=N88 J=N104 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E217      BeamColumn     I=N100 J=N104 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E217      BeamColumn     I=N100 J=N104 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E218      BeamColumn     I=N103 J=N104 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E218      BeamColumn     I=N103 J=N104 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E219      BeamColumn     I=N89 J=N105 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E219      BeamColumn     I=N89 J=N105 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E220      BeamColumn     I=N101 J=N105 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E220      BeamColumn     I=N101 J=N105 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E221      BeamColumn     I=N90 J=N106 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E221      BeamColumn     I=N90 J=N106 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E222      BeamColumn     I=N102 J=N106 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E222      BeamColumn     I=N102 J=N106 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E223      BeamColumn     I=N105 J=N106 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E223      BeamColumn     I=N105 J=N106 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E224      BeamColumn     I=N91 J=N107 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E224      BeamColumn     I=N91 J=N107 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E225      BeamColumn     I=N103 J=N107 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E225      BeamColumn     I=N103 J=N107 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E226      BeamColumn     I=N106 J=N107 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E226      BeamColumn     I=N106 J=N107 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E227      BeamColumn     I=N92 J=N108 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E227      BeamColumn     I=N92 J=N108 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E228      BeamColumn     I=N104 J=N108 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E228      BeamColumn     I=N104 J=N108 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E229      BeamColumn     I=N107 J=N108 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E229      BeamColumn     I=N107 J=N108 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E230      BeamColumn     I=N93 J=N109 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E230      BeamColumn     I=N93 J=N109 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E231      BeamColumn     I=N105 J=N109 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E231      BeamColumn     I=N105 J=N109 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E232      BeamColumn     I=N94 J=N110 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E232      BeamColumn     I=N94 J=N110 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E233      BeamColumn     I=N106 J=N110 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E233      BeamColumn     I=N106 J=N110 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E234      BeamColumn     I=N109 J=N110 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E234      BeamColumn     I=N109 J=N110 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E235      BeamColumn     I=N95 J=N111 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E235      BeamColumn     I=N95 J=N111 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E236      BeamColumn     I=N107 J=N111 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E236      BeamColumn     I=N107 J=N111 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E237      BeamColumn     I=N110 J=N111 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E237      BeamColumn     I=N110 J=N111 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E238      BeamColumn     I=N96 J=N112 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E238      BeamColumn     I=N96 J=N112 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E239      BeamColumn     I=N108 J=N112 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E239      BeamColumn     I=N108 J=N112 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E240      BeamColumn     I=N111 J=N112 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E240      BeamColumn     I=N111 J=N112 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E241      BeamColumn     I=N97 J=N113 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E241      BeamColumn     I=N97 J=N113 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E242      BeamColumn     I=N98 J=N114 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E242      BeamColumn     I=N98 J=N114 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E243      BeamColumn     I=N113 J=N114 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E243      BeamColumn     I=N113 J=N114 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E244      BeamColumn     I=N99 J=N115 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E244      BeamColumn     I=N99 J=N115 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E245      BeamColumn     I=N114 J=N115 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E245      BeamColumn     I=N114 J=N115 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E246      BeamColumn     I=N100 J=N116 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E246      BeamColumn     I=N100 J=N116 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E247      BeamColumn     I=N115 J=N116 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E247      BeamColumn     I=N115 J=N116 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E248      BeamColumn     I=N101 J=N117 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E248      BeamColumn     I=N101 J=N117 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E249      BeamColumn     I=N113 J=N117 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E249      BeamColumn     I=N113 J=N117 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E250      BeamColumn     I=N102 J=N118 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E250      BeamColumn     I=N102 J=N118 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E251      BeamColumn     I=N114 J=N118 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E251      BeamColumn     I=N114 J=N118 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E252      BeamColumn     I=N117 J=N118 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E252      BeamColumn     I=N117 J=N118 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E253      BeamColumn     I=N103 J=N119 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E253      BeamColumn     I=N103 J=N119 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E254      BeamColumn     I=N115 J=N119 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E254      BeamColumn     I=N115 J=N119 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E255      BeamColumn     I=N118 J=N119 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E255      BeamColumn     I=N118 J=N119 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E256      BeamColumn     I=N104 J=N120 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E256      BeamColumn     I=N104 J=N120 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E257      BeamColumn     I=N116 J=N120 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E257      BeamColumn     I=N116 J=N120 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E258      BeamColumn     I=N119 J=N120 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E258      BeamColumn     I=N119 J=N120 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E259      BeamColumn     I=N105 J=N121 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E259      BeamColumn     I=N105 J=N121 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E260      BeamColumn     I=N117 J=N121 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E260      BeamColumn     I=N117 J=N121 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E261      BeamColumn     I=N106 J=N122 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E261      BeamColumn     I=N106 J=N122 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E262      BeamColumn     I=N118 J=N122 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E262      BeamColumn     I=N118 J=N122 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E263      BeamColumn     I=N121 J=N122 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E263      BeamColumn     I=N121 J=N122 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E264      BeamColumn     I=N107 J=N123 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E264      BeamColumn     I=N107 J=N123 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E265      BeamColumn     I=N119 J=N123 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E265      BeamColumn     I=N119 J=N123 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E266      BeamColumn     I=N122 J=N123 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E266      BeamColumn     I=N122 J=N123 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E267      BeamColumn     I=N108 J=N124 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E267      BeamColumn     I=N108 J=N124 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E268      BeamColumn     I=N120 J=N124 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E268      BeamColumn     I=N120 J=N124 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E269      BeamColumn     I=N123 J=N124 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E269      BeamColumn     I=N123 J=N124 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E270      BeamColumn     I=N109 J=N125 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E270      BeamColumn     I=N109 J=N125 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E271      BeamColumn     I=N121 J=N125 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E271      BeamColumn     I=N121 J=N125 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E272      BeamColumn     I=N110 J=N126 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E272      BeamColumn     I=N110 J=N126 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E273      BeamColumn     I=N122 J=N126 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E273      BeamColumn     I=N122 J=N126 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E274      BeamColumn     I=N125 J=N126 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E274      BeamColumn     I=N125 J=N126 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E275      BeamColumn     I=N111 J=N127 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E275      BeamColumn     I=N111 J=N127 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E276      BeamColumn     I=N123 J=N127 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E276      BeamColumn     I=N123 J=N127 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E277      BeamColumn     I=N126 J=N127 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E277      BeamColumn     I=N126 J=N127 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E278      BeamColumn     I=N112 J=N128 Sec.=16X16X0.375 REZ=None E_Gp=0 F_Gp=0
+   E278      BeamColumn     I=N112 J=N128 Sec.=16X16X0.875 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E279      BeamColumn     I=N124 J=N128 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E279      BeamColumn     I=N124 J=N128 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
-   E280      BeamColumn     I=N127 J=N128 Sec.=W21X44 REZ=None E_Gp=0 F_Gp=0
+   E280      BeamColumn     I=N127 J=N128 Sec.=W21X93 REZ=None E_Gp=0 F_Gp=0
                             GeoK=1 OutCode=1 FEFCase=None LFac=0.0 PhiY=0 
  --------------------------------------------------------------------------------
 
 
  Starting ModeShape Analysis...
    Subspace performs 5 iterations.
-   Jacobian performs 81 rotations.
+   Jacobian performs 76 rotations.
  ModeShape Analysis has succeeded!
 
  Total Analysis Methods Performed: 1
- Analysis Time Elapsed: 0.009 Sec.
+ Analysis Time Elapsed: 0.012 Sec.
 

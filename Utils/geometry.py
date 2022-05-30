@@ -87,6 +87,7 @@ def get_design_groundMotions_from_folder(gm_folder, ground_motion_number):
                 ground_motions[i, gm_index * 10 + j] = float(line.split()[1])
 
     ground_motions, target_objectives = scale_gm_to_design_level(gm_paths, ground_motions)
+    print('\n'*3)
     return (ground_motions, target_objectives, gm_names)
 
 
@@ -274,41 +275,76 @@ def get_graph_and_index_from_ipt(ipt_path, mode, ground_motion_number):
     element_node_dict = {}      # key: element_index, value: [node1_index, node2_index, node1_face (My's index), node2_face]
     node_element_dict = {}      # key: node1Name_node2Name, value: element_index
     element_length_list = []    # [l1, l2, l3, .....]
+    node_drift_node_dict = {}   # record the corresponding node to get the drift. For example, node(3, 2, 3) will find node(3, 1, 3) to calculate drift
 
-    for y in y_grid[:-1]:
-        initial_count = element_count
-        for x in x_grid:
+
+    # Only save the point [0, 1, 0], [0, 2, 0], .... , [0, 7, 0]
+    for y in range(1, len(y_grid)):
+        story_name = f"{y}F"
+        node_drift_node_dict[story_name] = []
+        for x in range(len(x_grid)):
+            for z in range(len(z_grid)):
+                story_height = 4200 if y == 1 else 3200
+                node_index_top = None
+                node_index_bottom = None
+                grid_coord_top = np.array([x, y, z])
+                grid_coord_bottom = np.array([x, y-1, z])
+                for i in range(graph.x.shape[0]):
+                    # find the node whose grid index = [x, y-1, z] and [x, y, z]
+                    if (graph.x[i, 3:6].numpy() == grid_coord_bottom).all():
+                        node_index_bottom = i
+                    if (graph.x[i, 3:6].numpy() == grid_coord_top).all():
+                        node_index_top = i
+                        break     
+                
+                # If the node is not found, raise error.
+                if(node_index_bottom is None or node_index_top is None):
+                    raise ValueError(f"There should be node [{x}, {y-1}, {z}] and [{x}, {y}, {z}], please check again.")
+
+                node_drift_node_dict[story_name].append((y, story_height, node_index_top, node_index_bottom))
+
+
+    # 1F col, 1F Xbeam, 2F col, 2F Xbeam, 3F col, 3F Xbeam, ..., 1F Zbeam, 2F Zbeam, 3F Zbeam....
+    for y in y_grid:
+        # x beam in y_grid[1:]
+        if y != y_grid[0]:
+            initial_count = element_count
             for z in z_grid:
-                coord1 = f"{x}_{y}_{z}"
-                coord2_y = y+3200 if y > 0 else y+4200
-                coord2 = f"{x}_{coord2_y}_{z}"
-                node1_index = coord_node_dict[coord1]
-                node2_index = coord_node_dict[coord2]
-                element_node_dict[element_count] = [node1_index, node2_index, 21, 19]
-                node_element_dict[f"{index_node_dict[node1_index]}_{index_node_dict[node2_index]}"] = element_count
-                element_count += 1
-                each_element_category_list.append(0)  # 1 is beam, 0 is column
-                element_length_list.append((coord2_y - y)/1000)
-        story_element_category_list.append(0)
-        story_element_index_list.append([initial_count, element_count])
+                for x in x_grid[:-1]:
+                    coord1 = f"{x}_{y}_{z}"
+                    coord2 = f"{x+x_grid_space}_{y}_{z}"
+                    node1_index = coord_node_dict[coord1]
+                    node2_index = coord_node_dict[coord2]
+                    element_node_dict[element_count] = [node1_index, node2_index, 17, 15]
+                    node_element_dict[f"{index_node_dict[node1_index]}_{index_node_dict[node2_index]}"] = element_count
+                    element_count += 1
+                    each_element_category_list.append(1)
+                    element_length_list.append(x_grid_space/1000)
+            story_element_category_list.append(1)
+            story_element_index_list.append([initial_count, element_count])
+
+        # column in y_grid[0:-1]
+        if y != y_grid[-1]:
+            initial_count = element_count
+            for x in x_grid:
+                for z in z_grid:
+                    coord1 = f"{x}_{y}_{z}"
+                    coord2_y = y+3200 if y > 0 else y+4200
+                    coord2 = f"{x}_{coord2_y}_{z}"
+                    node1_index = coord_node_dict[coord1]
+                    node2_index = coord_node_dict[coord2]
+                    element_node_dict[element_count] = [node1_index, node2_index, 21, 19]
+                    node_element_dict[f"{index_node_dict[node1_index]}_{index_node_dict[node2_index]}"] = element_count
+                    element_count += 1
+                    each_element_category_list.append(0)  # 1 is beam, 0 is column
+                    element_length_list.append((coord2_y - y)/1000)
+            story_element_category_list.append(0)
+            story_element_index_list.append([initial_count, element_count])
+
+        
+
 
     for y in y_grid[1:]:
-        # x beam
-        initial_count = element_count
-        for z in z_grid:
-            for x in x_grid[:-1]:
-                coord1 = f"{x}_{y}_{z}"
-                coord2 = f"{x+x_grid_space}_{y}_{z}"
-                node1_index = coord_node_dict[coord1]
-                node2_index = coord_node_dict[coord2]
-                element_node_dict[element_count] = [node1_index, node2_index, 17, 15]
-                node_element_dict[f"{index_node_dict[node1_index]}_{index_node_dict[node2_index]}"] = element_count
-                element_count += 1
-                each_element_category_list.append(1)
-                element_length_list.append(x_grid_space/1000)
-        story_element_category_list.append(1)
-        story_element_index_list.append([initial_count, element_count])
-
         # z beam
         initial_count = element_count
         for x in x_grid:
@@ -330,15 +366,15 @@ def get_graph_and_index_from_ipt(ipt_path, mode, ground_motion_number):
     element_category_list = story_element_category_list if mode=='story' else each_element_category_list
 
     print(f"element_category_list num: {len(element_category_list)}")
-    print(element_category_list)
-    print("\n"*3)
+    # print(element_category_list)
+    # print("\n"*3)
     print(f"story_element_index_list num: {len(story_element_index_list)}")
-    print(story_element_index_list)
+    # print(story_element_index_list)
 
     # Check element number is right
     assert len(beamcolumn_node_dict.keys()) == element_count
 
-    return graph, (element_node_dict, node_element_dict, element_category_list, each_element_category_list, element_length_list, story_element_index_list)
+    return graph, (element_node_dict, node_element_dict, element_category_list, each_element_category_list, element_length_list, story_element_index_list, node_drift_node_dict)
 
 
 

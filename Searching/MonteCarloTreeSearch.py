@@ -22,7 +22,7 @@ class Node:
         self.element_index = depth          # Index of all element (will be the depth of the MC Tree)
         self.next_is_beam = True if Node.agent.element_category_list[depth] == 1 else False      
                                             # Check the table whether next index is beam/column, if current depth=2, then next depth=3, the third elem, where index is 2 in list
-        self.untried_actions = Node.agent.available_actions(is_beam=is_beam)
+        self.untried_actions = Node.agent.available_actions(is_beam=self.next_is_beam)
                                             # Record untried section for expanding node
         self.section = action_section       # Current element's section
         self.current_design = deepcopy(previous_sections)
@@ -39,7 +39,6 @@ class Node:
         print(f"Element Category List: {agent.element_category_list[:10]}...")
         print(f"Graph: {agent.graph}")
         print(f"Input path: {agent.ipt_path}")
-        print(f"Candidate path: {env.candidate_path}")
         print(f"Analysis path: {env.analysis_path}")
         print(f"Output path: {env.output_path}")
         print(f"Initial design: \n{agent.get_state()}")
@@ -53,7 +52,7 @@ class Node:
             w = 0.0
         return w
 
-    def select(self, c_param=1.4):
+    def select(self, c_param=1.0):
         # print(f"Select, depth:{self.element_index}, {self.previous_sections}")
         weights = [child_node.weight_func(c_param) for child_node in self.childrens]
         action = np.argmax(weights)
@@ -105,13 +104,17 @@ class MCTS:
     def __str__(self):
         return "Monte Carlo Tree Search AI"
 
-    def simulation(self, times=1000):
+    def simulation(self, times=1000, checkpoint=500):
         for i in range(times):
             leaf_node = self.simulation_policy()
+            depth = leaf_node.element_index
+            print(f"Simulation: {i+1:5d}, depth: {depth:3d}, score: ", end="")
             score = leaf_node.rollout()
             leaf_node.update(score)
-            depth = leaf_node.element_index
-            print(f"Simulation: {i+1:5d}, depth: {depth:3d}, score: {score:.4f}, sections: {leaf_node.current_design[:depth]}")
+            print(f"{score:.4f}, sections: {leaf_node.current_design[:depth]}")
+            if (i+1) % checkpoint == 0:
+                checkpoint_result = self.inference()
+                Node.agent.output_design(checkpoint_result, str(i+1)) 
 
     def simulation_policy(self):
         current_node = self.current_node
@@ -133,14 +136,14 @@ class MCTS:
         return current_node.current_design
 
 
-    def run(self, times=1000):
+    def run(self, times=1000, checkpoint=500):
         # Initialize root node
         Node.agent.initialize_state()
         self.root = Node(None, None, 0, 0, Node.agent.get_state())
         self.current_node = self.root
 
         # Simulation
-        self.simulation(times)
+        self.simulation(times, checkpoint)
 
         # Inference
         result = self.inference()

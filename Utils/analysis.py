@@ -3,8 +3,8 @@ import torch
 import time
 
 
-pisa = "E:/StructureInverseDesign/Files/Analysis/PISA3D_Batch_500nodes.exe"
-eigen_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Eigen"
+pisa = "Files/Analysis/PISA3D_Batch_500nodes.exe"
+eigen_file_path = "Files/Analysis/MODAL.Eigen"
 # modal_file_path = "E:/StructureInverseDesign/Files/Analysis/MODAL.Modal"
 
 
@@ -96,7 +96,8 @@ def make_section_graph(designer, simulator, graph, candidate_design, modal_resul
 
 
 
-def predict(simulator, candidate_graph):
+def predict(simulator, candidate_graph, ground_motions=None):
+    ground_motions = simulator.ground_motions if ground_motions == None else ground_motions
     device = simulator.device
     graph = candidate_graph.to(device)
     duplicate_x = graph.x.repeat(simulator.ground_motion_number, 1).to(device)    # duplicate x from [graph_nodes, features] to [graph_nodes * gm_num, features]
