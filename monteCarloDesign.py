@@ -1,4 +1,5 @@
 import sys
+from tabnanny import check
 sys.path.append('Utils/')
 sys.path.append('Searching/')
 sys.path.append('Models/')
@@ -16,7 +17,8 @@ simulator_path = "Simulator/2022_05_27__22_01_14"
 ground_motion_number = 3
 
 # Environment
-env_args = {"simulator_path": simulator_path, "ground_motion_number": ground_motion_number, "method": "MCTS"}
+comment = "Use linear decay c in MCTS (1.0 --> 0.2), 0.95 yield factor, beam section only 5 kind"
+env_args = {"simulator_path": simulator_path, "ground_motion_number": ground_motion_number, "method": "MCTS", "comment": comment}
 env = Environment.StructureSimulator(**env_args)
 
 # Agent
@@ -28,8 +30,8 @@ agent = Agent.StructureDesigner(**agent_args)
 # Use your models to get the best beam_column design list.
 rounds = 50000
 checkpoint = 5000
-mcts = MonteCarloTreeSearch.MCTS(agent=agent, env=env)
-final_design = mcts.run(rounds, checkpoint)
+mcts = MonteCarloTreeSearch.MCTS(agent=agent, env=env, rounds=rounds, checkpoint=checkpoint)
+final_design = mcts.run()
 print(f"\nFinal design: \n{final_design}\n\n")
 
 # Output the final design to .ipt file (which can be opened by PISA3D software).

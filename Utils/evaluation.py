@@ -9,15 +9,18 @@ def designScore(designer, simulator, graph, response, design):
     '''
     materialFactor, strengthFactor = 0.4, 0.6
     score = 0
+
     materialScore = materialUsageScore(designer, simulator, design)
     strengthScore = plasticHingeScore(designer, simulator, graph, response)
     # score += driftRatioScore(designer, simulator, graph, response)
+
     score += materialFactor * materialScore + strengthFactor * strengthScore
-    print(f"({materialScore:.4f}, {strengthScore:.4f})--> ", end="")
     
+    designer.weighted_score.append(score)
+    designer.material_score.append(materialScore)
+    designer.strength_score.append(strengthScore)
+
     return score
-
-
 
 
 
@@ -92,8 +95,9 @@ def driftRatioScore(designer, simulator, graph, response):
 
 My_start_index = 15
 section_info_dim = 2
-allowable_plastic_hinge_number_per_section = 30     # 30 hinge score = 1, 100 hinge score = 0
-tolerant_plastic_hinge_number_per_section = 120 
+yield_factor = 0.95
+allowable_plastic_hinge_number_per_section = 20     # 20 hinge score = 1, 100 hinge score = 0
+tolerant_plastic_hinge_number_per_section = 100 
 def plasticHingeScore(designer, simulator, graph, response):
     # response: [node_num, 2000(timestep), 15(out_dim)]
     x = graph.x
@@ -112,7 +116,7 @@ def plasticHingeScore(designer, simulator, graph, response):
                 My_localZ_face_i = x[node_index, My_start_index + i * section_info_dim]
                 if My_localZ_face_i <= 0.1:     # It means this face is not connect to any element
                     continue
-                pred_node_plastic_hinge = (abs(pred_moment_face_i) >= simulator.yield_factor * My_localZ_face_i) + 0  # [2000]
+                pred_node_plastic_hinge = (abs(pred_moment_face_i) >= yield_factor * My_localZ_face_i) + 0  # [2000]
 
                 # Once plastic hinge occurs, set the [index, face] as plastic
                 if(torch.max(pred_node_plastic_hinge) != 0):
@@ -126,6 +130,7 @@ def plasticHingeScore(designer, simulator, graph, response):
     # Maximum tolerable plastic hinge number is all 1F column yield --> 1F column number * 2 (bottom and top of a column)
     # print(f"plastic hinge number: {total_plastic_hinge_num }")
     score = 1 - (total_plastic_hinge_num - allowable_plastic_hinge_number) / (tolerant_plastic_hinge_number - allowable_plastic_hinge_number)
+    score = max(torch.tensor(0), score)   # In case score < 0
     score = min(torch.tensor(1), score)   # In case score > 1
     score = score.cpu().numpy()
 

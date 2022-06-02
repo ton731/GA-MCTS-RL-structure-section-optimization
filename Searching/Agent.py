@@ -1,5 +1,6 @@
 import os
 from copy import deepcopy
+import matplotlib.pyplot as plt
 
 from Utils import geometry
 from Utils import normalization
@@ -7,7 +8,8 @@ from Utils import normalization
 
 
 
-available_beam_sections = ['W21x93', 'W21x83', 'W21x73', 'W21x68', 'W21x62', 'W21x57', 'W21x50', 'W21x48', 'W21x44']
+# available_beam_sections = ['W21x93', 'W21x83', 'W21x73', 'W21x68', 'W21x62', 'W21x57', 'W21x50', 'W21x48', 'W21x44']
+available_beam_sections = ['W21x93', 'W21x73', 'W21x62', 'W21x50', 'W21x44']
 available_column_sections = ['16x16x0.875', '16x16x0.75', '16x16x0.625', '16x16x0.5', '16x16x0.375']
 
 
@@ -42,7 +44,13 @@ class StructureDesigner:
         self.current_index = 0
 
 
-        # 4. Initialization
+        # 4. Initialize metrics
+        self.weighted_score = []
+        self.material_score = []
+        self.strength_score = []
+
+
+        # 5. Initialization
         self._graph_preprocessing()
         self._initialize_design()
 
@@ -150,42 +158,17 @@ class StructureDesigner:
         self.env.visualize_response(self, final_design)
 
 
-
-
-
-    # Try these with decorator
-    '''
-    def _story_to_element(self, design):
-        # convert from story section to element_section
-        element_design = [None for _ in range(self.total_elements)]
-        for i, section in enumerate(design):
-            for index in range(self.story_element_index_list[i][0], self.story_element_index_list[i][1]):
-                element_design[index] = section
-        return element_design
-
-
-    # Convert a 'story' mode stroy design to element design
-    def get_design(self, design=None):
-        if design == None:
-            design = self.current_design
-        return self._story_to_element(design) if self.mode == 'story' else design
-
-
-    def output_design(self, final_design=None):
-        if final_design == None:
-            final_design == self.current_design
-        if len(final_design) != self.total_elements:
-            final_design = self._story_to_element(final_design)
-        geometry.reconstruct_ipt_file(self.ipt_path, self.env.output_path, final_design, self.node_element_dict)
-
-    
-    def visualize_response(self, final_design=None):
-        if final_design == None:
-            final_design == self.current_design
-        if len(final_design) != self.total_elements:
-            final_design = self._story_to_element(final_design)
-        self.env.visualize_response(self, final_design)
-    '''
-
-
-
+    def plot(self):
+        plt.figure(figsize=(16, 10))
+        plt.rcParams['font.size'] = '14'
+        plt.plot(list(range(1, len(self.weighted_score)+1)), self.weighted_score, label='weighted_score', color='black', alpha=0.7, linewidth=1)
+        plt.plot(list(range(1, len(self.weighted_score)+1)), self.material_score, label='material_score', color='red', alpha=0.7, linewidth=1)
+        plt.plot(list(range(1, len(self.weighted_score)+1)), self.strength_score, label='strength_score', color='blue', alpha=0.7, linewidth=1)
+        plt.grid()
+        plt.legend(loc="lower right")
+        plt.title("Design Score of MCTS")
+        plt.xlabel("Rounds")
+        plt.ylabel("Score")
+        plt.savefig(os.path.join(self.env.output_folder, "score.png"))
+        plt.close()
+        

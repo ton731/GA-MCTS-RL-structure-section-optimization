@@ -18,10 +18,11 @@ from Utils import visualization
 
 
 class StructureSimulator:
-    def __init__(self, simulator_path, ground_motion_number, method='MCTS'):
+    def __init__(self, simulator_path, ground_motion_number, method='MCTS', comment=None):
 
         # 1. Simulator Enviroment
         self.method = method
+        self.comment = comment
         self.time = datetime.now().strftime("%Y_%m_%d__%H_%M_%S")
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.simulator_path = simulator_path
@@ -41,6 +42,7 @@ class StructureSimulator:
         self.analysis_path = None
         self.output_folder = None
         self.output_path = None
+        self.record_path = None
 
 
         # 3. Simulator Model
@@ -96,7 +98,12 @@ class StructureSimulator:
             os.mkdir(self.output_folder)
         self.output_path = join(self.output_folder, "design.ipt")
 
-    
+        with open(join(self.output_folder, "comment.txt"), "w") as f:
+            f.write(self.comment)
+
+        self.record_path = join(self.output_folder, "record.txt")
+
+
     def _initialize_simulator_model(self):
         self.model_constructor_args = {
             'input_dim': 36, 'hidden_dim': self.args["hidden_dim"], 'output_dim': 15,
