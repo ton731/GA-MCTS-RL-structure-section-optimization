@@ -21,10 +21,15 @@ class Node:
         self.N = 0                          # Node visited time
         self.is_beam = is_beam              # Whether it's a beam
         self.element_index = depth          # Index of all element (will be the depth of the MC Tree)
-        self.next_is_beam = True if Node.agent.element_category_list[depth] == 1 else False      
+        if depth < Node.agent.steps():
+            self.next_is_beam = True if Node.agent.element_category_list[depth] == 1 else False      
                                             # Check the table whether next index is beam/column, if current depth=2, then next depth=3, the third elem, where index is 2 in list
-        self.untried_actions = Node.agent.available_actions(is_beam=self.next_is_beam)
+            self.untried_actions = Node.agent.available_actions(is_beam=self.next_is_beam)
                                             # Record untried section for expanding node
+        else:
+            self.next_is_beam = None
+            self.untried_actions = None
+
         self.section = action_section       # Current element's section
         self.current_design = deepcopy(previous_sections)
         if depth > 0:   # update section, for depth = 2, it's the second element which index in the design is 1.
@@ -58,7 +63,7 @@ class Node:
     def get_decay_c(round=None):
         if round is None:
             round = Node.total_N
-        return 1 - 0.8 * round/Node.rounds
+        return 0.6 - 0.6 * round/Node.rounds
 
     def select(self, c_param=None):
         if c_param is None:
@@ -99,6 +104,7 @@ class Node:
 
     def is_root_node(self):
         return self.element_index == 0
+
 
 
     

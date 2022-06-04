@@ -8,18 +8,19 @@ from Utils import normalization
 
 
 
-# available_beam_sections = ['W21x93', 'W21x83', 'W21x73', 'W21x68', 'W21x62', 'W21x57', 'W21x50', 'W21x48', 'W21x44']
-available_beam_sections = ['W21x93', 'W21x73', 'W21x62', 'W21x50', 'W21x44']
+available_beam_sections = ['W21x93', 'W21x83', 'W21x73', 'W21x68', 'W21x62', 'W21x57', 'W21x50', 'W21x48', 'W21x44']
+# available_beam_sections = ['W21x93', 'W21x73', 'W21x62', 'W21x50', 'W21x44']
 available_column_sections = ['16x16x0.875', '16x16x0.75', '16x16x0.625', '16x16x0.5', '16x16x0.375']
 
 
 
 class StructureDesigner:
-    def __init__(self, mode='element', environment=None):
+    def __init__(self, mode='element', environment=None, method="MCTS"):
 
         # 1. Mode selection and environment
         self.mode = mode    # element / story
         self.env = environment
+        self.method = method
         
         
         # 2. Graph Pre-processing
@@ -65,7 +66,7 @@ class StructureDesigner:
         self.graph, geo_info = geometry.get_graph_and_index_from_ipt(self.ipt_path, self.mode, self.env.ground_motion_number)
         self.element_node_dict, self.node_element_dict, self.element_category_list, self.each_element_category_list, self.element_length_list, self.story_element_index_list, self.node_drift_node_dict = geo_info
         self.story_num = len(self.node_drift_node_dict.keys())
-        print(f"The structure has {self.story_num} stories.")
+        print(f"The structure has {self.story_num} stories.\n\n\n")
         self.graph = normalization.normalize(self.graph, self.env.norm_dict)
         self.min_max_usage = geometry.get_min_max_usage(self.each_element_category_list, self.element_length_list, self.env.area_dict)
         self.total_design_elements = len(self.element_category_list)
@@ -80,9 +81,6 @@ class StructureDesigner:
                 self.current_design.append("W21x44")
             else:   # elem is column
                 self.current_design.append("16x16x0.375")
-
-
-    
 
 
     def initialize_state(self):
@@ -166,7 +164,7 @@ class StructureDesigner:
         plt.plot(list(range(1, len(self.weighted_score)+1)), self.strength_score, label='strength_score', color='blue', alpha=0.7, linewidth=1)
         plt.grid()
         plt.legend(loc="lower right")
-        plt.title("Design Score of MCTS")
+        plt.title(f"Design Score of {self.method}")
         plt.xlabel("Rounds")
         plt.ylabel("Score")
         plt.savefig(os.path.join(self.env.output_folder, "score.png"))

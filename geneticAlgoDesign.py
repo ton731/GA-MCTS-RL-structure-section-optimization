@@ -5,7 +5,7 @@ sys.path.append('Searching/')
 sys.path.append('Models/')
 
 
-from Searching import MonteCarloTreeSearch
+from Searching import GeneticAlgorithm
 from Searching import Agent
 from Searching import Environment
 
@@ -17,22 +17,24 @@ simulator_path = "Simulator/2022_05_27__22_01_14"
 ground_motion_number = 3
 
 # Environment
-comment = "Use linear decay c in MCTS (0.6 --> 0.0), 0.95 yield factor, beam section only 5 kind"
-env_args = {"simulator_path": simulator_path, "ground_motion_number": ground_motion_number, "method": "MCTS", "comment": comment}
+comment = "round=100, checkpoint=5, population_size=1000, bs=8, 0.95 yield factor, beam section 7 kind"
+env_args = {"simulator_path": simulator_path, "ground_motion_number": ground_motion_number, "method": "GA", "comment": comment}
 env = Environment.StructureSimulator(**env_args)
 
 # Agent
-agent_args = {"mode": "story", "environment": env, "method": "MCTS"}
+agent_args = {"mode": "story", "environment": env, "method": "GA"}
 agent = Agent.StructureDesigner(**agent_args)
 
 
 
+
+
 # Use your models to get the best beam_column design list.
-rounds = 50000
-checkpoint = 5000
+rounds = 100
+checkpoint = 5
 start_time = time.time()
-mcts = MonteCarloTreeSearch.MCTS(agent=agent, env=env, rounds=rounds, checkpoint=checkpoint)
-final_design = mcts.run()
+ga = GeneticAlgorithm.GA(agent=agent, env=env, rounds=rounds, checkpoint=checkpoint)
+final_design = ga.run()
 print(f"\nFinal design: \n{final_design}\n\n")
 finish_time = time.time()
 print("\n\ntotal_time: ", (finish_time - start_time)/60, "min\n\n")
@@ -41,7 +43,7 @@ print("\n\ntotal_time: ", (finish_time - start_time)/60, "min\n\n")
 agent.output_design(final_design)
 
 # Visualize the seismic response under design-earthquakes. (This is not nececessary!)
-agent.visualize_response(final_design)
+# agent.visualize_response(final_design)
 
 
 

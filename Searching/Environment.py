@@ -121,8 +121,6 @@ class StructureSimulator:
          self.ground_motions = self.ground_motions.to(self.device)
 
 
-
-    # score = env.score(agent, agent.get_design())
     def score(self, designer, candidate_design):
         # First, if mode is 'story', need to convert story design to element design
         candidate_design = designer.get_design(candidate_design)
@@ -131,6 +129,15 @@ class StructureSimulator:
         response = analysis.predict(self, candidate_graph)
         score = evaluation.designScore(designer, self, candidate_graph, response, candidate_design)
         return score
+
+    
+    def batch_score(self, designer, batch_design, batch_size):
+        candidate_designs = [designer.get_design(design) for design in batch_design]
+        modal_results = [analysis.run_modal_analysis(designer, self, candidate_design) for candidate_design in candidate_designs]
+        candidate_graphs = [analysis.make_section_graph(designer, self, designer.graph, candidate_design, modal_result) for candidate_design, modal_result in zip(candidate_designs, modal_results)]
+        responses = analysis.batch_predict(self, candidate_graphs, batch_size)
+        scores = evaluation.batch_designScore(designer, self, candidate_graphs, responses, candidate_designs, batch_size)
+        return scores
 
 
     def visualize_response(self, designer, final_design):

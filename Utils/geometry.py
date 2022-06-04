@@ -395,7 +395,7 @@ def reconstruct_ipt_file(ipt_path, output_file, design, node_element_dict):
             new_line = " ".join(contents)
             f.write(new_line + '\n')
 
-    print("Reconstruct ipt file successfully.", end='\n'*3)
+    print("\n\nReconstruct ipt file successfully.", end='\n'*3)
 
 
 

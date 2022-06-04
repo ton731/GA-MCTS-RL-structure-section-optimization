@@ -38,7 +38,7 @@ def run_modal_analysis(designer, simulator, candidate_design):
     # os.system(pisa + " " + modal_path + " " + ">/null 2>&1")
     finished = False
     while not finished:
-        os.system(pisa + " " + modal_path + " " + ">/null 2>&1")
+        os.system(pisa + " " + modal_path + " " + f">{os.path.join(simulator.output_folder, 'null')} 2>&1")
         finished = check_modal_analysis()
     time.sleep(0.1)
 
@@ -111,4 +111,31 @@ def predict(simulator, candidate_graph, ground_motions=None):
             H_list, C_list, out = simulator.model(gm, duplicate_x, None, None, graph.ptr, H_list, C_list)
             output[:, i, :] = out
     return output
+
+
+
+def batch_predict(simulator, candidate_graphs, batch_size):
+    ground_motions = simulator.ground_motions
+    device = simulator.device
+    graphs = [candidate_graph.to(device) for candidate_graph in candidate_graphs]
+    node_num = graphs[0].x.shape[0]
+    duplicate_xs = [graph.x.repeat(simulator.ground_motion_number, 1).to(device) for graph in graphs]
+    batch_x = torch.cat(duplicate_xs, dim=0)
+    batch_gms = [simulator.ground_motions for i in range(batch_size)]
+    batch_gms = torch.cat(batch_gms, dim=1)
+    assert batch_x.shape[1] == 36
+    batch_ptr = [node_num * i for i in range(0, simulator.ground_motion_number * batch_size + 1)]
+
+    # ori_ptr: [0, 50, 100, 150], [0, 50, 100, 150], [0, 50, 100, 150] for batch_size = 3, gm_num = 3
+    # new_ptr: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
+
+    simulator.model.eval()
+    with torch.no_grad():
+        output = torch.zeros((batch_x.shape[0], 2000, simulator.model.output_dim)).to(device)
+        H_list = [None for i in range(simulator.model.num_layers)]
+        C_list = [None for i in range(simulator.model.num_layers)]
+        for i, gm in enumerate(batch_gms):
+            H_list, C_list, out = simulator.model(gm, batch_x, None, None, batch_ptr, H_list, C_list)
+            output[:, i, :] = out
+    return [output[node_num*simulator.ground_motion_number*i : node_num*simulator.ground_motion_number*(i+1)] for i in range(batch_size)]
 

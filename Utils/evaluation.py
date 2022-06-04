@@ -24,6 +24,20 @@ def designScore(designer, simulator, graph, response, design):
 
 
 
+def batch_designScore(designer, simulator, graphs, responses, designs, batch_size):
+    materialFactor, strengthFactor = 0.4, 0.6
+    batch_score = []
+    for i in range(batch_size):
+        score = 0
+        materialScore = materialUsageScore(designer, simulator, designs[i])
+        strengthScore = plasticHingeScore(designer, simulator, graphs[i], responses[i])
+        score += materialFactor * materialScore + strengthFactor * strengthScore
+        batch_score.append(score)
+    return batch_score
+
+
+
+
 
 
 
