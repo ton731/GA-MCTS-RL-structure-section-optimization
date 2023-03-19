@@ -1,24 +1,44 @@
-# Structure-Inverse-Design
+# GA-MCTS-RL-structure-section-optimization
 
-1. Install needed packages using requirements.txt. Text the following command in terminal. You should run the code on Windows OS.
-    ```
-    pip3 install -r requirements.txt
-    ```
-    You have to install torch (**GPU version**) by yourself due to the difference in CUDA version.
+In this project, we aim to optimize the section design of a given structure, in which the strength of the structure is ensured and the cost is minimized. Three searching algorithm: genetic algorithm (GA), reinforcement learning (RL), and monte carlo tree search (MTCS) are leveraged and explored in this project.
 
 
-2. For visualizing the structure design, you can download the software **PISA3D** (Platform of Inelastic Structural Analysis for 3D systems) in the following link:
-https://www.ncree.org/PISA3D.aspx
+### Presentation
+- A quick introduction of this project: https://www.youtube.com/watch?v=nJAVA5VJUAg&t=38s
+- Slides: https://docs.google.com/presentation/d/145z9AMo-Q6W1Io4kQAsT7XeSqcX2jeyoKMmNaDHIqwc/edit#slide=id.g1318f1d7438_0_0
 
 
-3. The process of creating agents and environments are listed in *example.py*. You can also run *monteCarloDesign.py* to try the effect of improving the design.
+### Motivation and Background
+- When designing a structure building, which beam/column section should be used for each beam/column member plays an important role in structural engeering, as it is related to the structural strength and the design cost.
+- However, it is a complex optimization problem, since for each of the beam/column member, it can potentially has 5-10 or more section options, which makes the design space uncountable.
+- Here we present several optimization methods using AI to explore the possibility of designing structures with AI.
+
+![motivation](Results/motivation.png)
 
 
-4. You can find the input structure file (structure.ipt) and the given ground motions in *Files/Input*. Once you output the structure design or visualize the response, the result will be save in *Files/Output/{AI Algorithm}/{current date}* folder.
+### Problem Formulation
+- We form the structural design problem as a series of searching decisions (21), where
+    1. each story of beam/column should have 1 section type assigned 
+    2. the most important elements (ex: 1F column) will be decided first
+    3. we can get a design score after all elements are assigned with a section type
+    4. design score = 0.4 * materialScore + 0.6 * strengthScore
+
+![section options](Results/section_options.png)
 
 
-5. For the instructions of using ***Agent*** *(StructureDesigner)* and ***Environment*** *(StructureSimulator)*, they are listed in *FinalProject/Agent.pdf*.
+### MonteCarlo Tree Search Formulation
+![mcts](Results/mcts.png)
 
 
+### Genetic Algorithm Formulation
+![ga](Results/ga.png)
+
+
+### Reinforcement Learning Formulation (DQN)
+![rl](Results/rl.png)
+
+
+### Results
+![result](Results/reslut.png)
 
 
